@@ -1,2 +1,2 @@
 # community-tools
-[Public] *Malcolm to add description*
+[Public] The public end-point for sharing collaborator driven tools for materials informatics.
