@@ -18,7 +18,7 @@ To get the most out of this guide, it is helpful to be familiar with:
 
 ## Datasets page
 Datasets on Citrination are accessed under the "[Datasets](https://citrination.com/datasets)" menu option, which then opens the following page:   
-![Datasets](fig/11_datasets.png "Datasets")   
+![Datasets](fig/11_datasets_page.png "Datasets")   
 You will see a row of headers describing the different categories for datasets. The category you're currently viewing is highlighted in blue, and this is Private ("My Datasets") by default. "Public" includes datasets that have been shared publicly by *any* Citrination user, and "Shared" includes datasets shared by/with members of your [Team](05_teams.md).
 
 Down below, you will see the list of datasets that fall under the category you've selected. Each row contains:
