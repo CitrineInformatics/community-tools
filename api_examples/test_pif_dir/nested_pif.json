@@ -1,2 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>AccessDenied</Code><Message>Request has expired</Message><X-Amz-Expires>900</X-Amz-Expires><Expires>2019-02-07T04:50:35Z</Expires><ServerTime>2019-02-07T05:50:23Z</ServerTime><RequestId>809189D23CB34CFC</RequestId><HostId>cZctaipf2dwvVFuphJXDwQWB5vCS3/pQDjgytdME7S3X7yj5kE5STtsCSc/qC/TeuliNt53QGog=</HostId></Error>
+[
+    {
+        "uid": "nested_uid",
+        "properties": [
+            {
+                "name": "Band gap",
+                "scalars": "6",
+                "units": "eV"
+            }
+        ],
+        "category": "system.chemical",
+        "chemicalFormula": "Li1I1"
+    }
+]
