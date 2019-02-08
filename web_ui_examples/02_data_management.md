@@ -18,7 +18,9 @@ To get the most out of this guide, it is helpful to be familiar with:
 
 ## Datasets page
 Datasets on Citrination are accessed under the "[Datasets](https://citrination.com/datasets)" menu option, which then opens the following page:   
+
 ![Datasets](fig/11_datasets_page.png "Datasets")   
+
 You will see a row of headers describing the different categories for datasets. The category you're currently viewing is highlighted in blue, and this is Private ("My Datasets") by default. "Public" includes datasets that have been shared publicly by *any* Citrination user, and "Shared" includes datasets shared by/with members of your [Team](05_teams.md).
 
 Down below, you will see the list of datasets that fall under the category you've selected. Each row contains:
@@ -31,7 +33,9 @@ Down below, you will see the list of datasets that fall under the category you'v
 
 ## Upload data
 If this is your first time on the Citrination platform, then "My Datasets" is likely empty for you. Let's change that by uploading some data! Click the "Upload Data" button found near the top of the page, which will take you to same page that opens if you had clicked "[Add Data](https://citrination.com/add_data)" in the menu:   
-![Add data](fig/12_add_data.png "Add data")   
+
+<img src="https://github.com/CitrineInformatics/community-tools/blob/enze/ui-tutorials/web_ui_examples/fig/12_add_data.png" alt="Add data" width="670" height="632">   
+
 Going through the items from top to bottom, the first choice to make is to decide if you're adding data to a new dataset (which must be created) or to an existing dataset.
 
 ### New dataset
@@ -55,7 +59,9 @@ The data for this example is stored in the `data` folder in this directory.
 
 ## Dataset info page
 Congratulations on adding data to your first dataset! When you click submit, you will be automatically redirected to the Dataset info page, which is shown below. This is the same page you would have arrived on by clicking the name of the dataset on the [Datasets](https://citrination.com/datasets) page.   
+
 ![Dataset info page](fig/13_dataset_info.png "Dataset info page")   
+
 At the top of this page, you will see the name and description you gave this dataset during the creation phase. The "Edit" button underneath the name allows you to change these two fields.
 
 You will also notice a dataset ID number that is assigned to this dataset. In between the ID number and the "Edit" button is the version number. Newly created datasets will be Version 1, and it increases by 1 each time "Create new version" is pressed. Note that creating a new version will **delete** all the files and PIF records in the dataset, so handle with care. "Delete" will remove the entire dataset and associated PIFs.
@@ -75,7 +81,9 @@ You will be redirected to the "Files" page of the dataset you selected, where yo
 
 ## PIF record
 If you click on any PIF record on the search page, an image like the one below should appear:   
+
 ![PIF record](fig/14_pif_record.png "PIF record")    
+
 The Chemical Formula will appear at the top, followed by Properties in an organized table, and then References. The three buttons at the top do the following:
 * **Add Data**: You can add more properties to this PIF and multiple versions will be created and saved in the history. The `uid` (found in the URL) of the PIF remains the same. *Typically* not used since it is rare that only a single PIF in a dataset needs to be updated.
 * **Dataset**: Clicking this returns you to the Dataset info page for the dataset that contains this particular PIF record.
