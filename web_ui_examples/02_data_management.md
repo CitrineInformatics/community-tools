@@ -1,10 +1,10 @@
 # Data Management
 *Authors: Enze Chen*
 
-In this document, we will cover how to create datasets on Citrination, how to upload data to these datasets, and how the data is formatted on the web UI. For demonstration purposes, we will be working with a subset of the full [Band gaps from Strehlow and Cook](https://citrination.com/datasets/1160/) dataset.
+In this guide, we will cover how to create datasets on Citrination, how to upload data to these datasets, and how the data is formatted on the web UI. For demonstration purposes, we will be working with a subset of the full [Band gaps from Strehlow and Cook](https://citrination.com/datasets/1160/) dataset.
 
 ## Learning outcomes
-After reading this document, you should feel comfortable with:
+After reading this guide, you should feel comfortable with:
 * Uploading new data to datasets on Citrination
 * Viewing and managing datasets on Citrination
 * Reading PIF records on Citrination
@@ -52,7 +52,7 @@ The final step is to choose the files containing the data you want to upload. As
 
 ### YOUR TURN
 The data for this example is stored in the `data` folder in this directory.   
-1. You should create a new dataset and choose a name and description.
+1. You should create a new dataset and choose a name ("An Example Dataset," perhaps) and description.
 2. Choose the "Default Ingester," which takes PIF JSON files and converts them into PIF records.
 3. Choose the `band_gap_sc_data.json` file, which should have 11 PIF records.
 4. Click "Submit Files."
@@ -68,7 +68,9 @@ You will also notice a dataset ID number that is assigned to this dataset. In be
 
 The box on the right lists all the [Data Views](03_data_views.md) that include this dataset. Down below, on the "Search in Dataset" page, you will see a similar search interface as the main page, just with the PIF records limited to those in this dataset. You should see 11 PIF records at the moment.
 
-At the top, "Files" lists all the files in this dataset, including information on who contributed them, their ingest status, and the option to delete them. There is an "Add Files" button that we will return to shortly. Moving across the top, we come to the "Access" button. On this page you have the option of changing the Privacy setting of your dataset as well as sharing the dataset with different [Teams](05_teams.md).
+At the top, "Files" lists all the files in this dataset, including information on who contributed them, their ingest status, and the option to delete them. There is an "Add Files" button that we will return to shortly.
+
+Moving across the top, we come to the "Access" button. On this page you have the option of changing the Privacy setting of your dataset as well as sharing the dataset with different [Teams](05_teams.md). https://stuff_about_public_data.com
 
 ### YOUR TURN
 11 PIF records are not that many. Let's add some more!    
@@ -95,4 +97,4 @@ This concludes our discussion of how to manage datasets on the Citrination platf
 * Viewing and managing datasets on Citrination
 * Reading PIF records on Citrination
 
-When you're ready to move on, feel free to look at either the [Data Views](03_data_views.md) or [Searching Citrination](04_search.md) guides.
+When you're ready to move on, feel free to look at either the [Data Views](03_data_views.md) or [Searching Citrination](04_search.md) guides. If you have further questions, please do not hesitate to [Contact Us](https://citrine.io/contact/).

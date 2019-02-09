@@ -1,10 +1,10 @@
 # Access and General Information
 *Authors: Enze Chen*
 
-In this document, we will cover the login process to the [Citrination platform](https://citrination.com/) and some general information about the site.
+In this guide, we will cover the login process to the [Citrination platform](https://citrination.com/) and some general information about the site.
 
 ## Learning outcomes
-After reading this document, you should feel comfortable with:
+After reading this guide, you should feel comfortable with:
 * Logging in to Citrination
 * Knowing how to access account information
 * Knowing where to look for help
@@ -55,4 +55,4 @@ This concludes our discussion of the administrivia of the Citrination platform. 
 * Knowing how to access account information
 * Knowing where to look for help
 
-When you're ready to move on, feel free to look at either the [Data Management](02_data_management.md) or [Searching Citrination](04_search.md) guides.
+When you're ready to move on, feel free to look at either the [Data Management](02_data_management.md) or [Searching Citrination](04_search.md) guides. If you have further questions, please do not hesitate to [Contact Us](https://citrine.io/contact/).
