@@ -28,12 +28,12 @@ Since Views are built from datasets, the first step in Views creation is selecti
 
 ![Select dataset](fig/22_select_dataset.png "Select dataset")   
 
-You have the option to search for specific datasets and select the relevant ones by clicking the boxes on the left. The UI will display how many PIF records are in each dataset. After you have selected at least one dataset, the "NEXT" button at the top will turn blue and clicking it will take you to the next page. For now, click on "My Datasets" and try to find the example dataset that you created.
+You have the option to search for specific datasets and select the relevant ones by clicking the boxes on the left. The UI will display how many PIF records are in each dataset. After you have selected at least one dataset, the "NEXT" button at the top will turn blue and clicking it will take you to the next page. For now, click on "My Datasets" and try to find the example dataset that you created with the Strehlow and Cook subset data.
 
 ### Select columns
 ![Select columns](fig/23_select_columns.png "Select columns")   
 
-From the datasets, Citrination will extract the chemical formula and properties that appear, along with the number of PIF records that have each property (though not how the counts correspond). You have to select at least one of the properties to be a column in your View, and the "Include All" button is a shortcut for selecting everything. After you've selected the desired columns, which should be all of them, the "NEXT" button will be enabled, taking you to the next page.
+From the datasets, Citrination will extract the chemical formula and properties that appear, along with the number of PIF records that have each property (though not how the counts correspond). You have to select at least one of the properties to be a column in your View, and the "Include All" button is a shortcut for selecting everything. After you've selected the desired columns, which should be all of them in this example, the "NEXT" button will be enabled, taking you to the next page.
 
 ### View summary
 ![View summary](fig/24_view_summary.png "View summary")   
@@ -46,7 +46,7 @@ At this point, the UI will turn dark and the following pop-up will appear:
 
 ![Configure ML](fig/25_configure_ml.png "Configure ML")   
 
-You have the option of training ML models now, or later. Since this is a fairly involved process, we'll cover it in [a subsequent guide](06_machine_learning.md), and select "Later" for now.
+You have the option of training ML models now, or later. Since this is a fairly involved process, we'll cover it in [a subsequent guide](06_machine_learning.md). Just select "Later" for now.
 
 ## View matrix
 Congratulations on making your first View! If you're not automatically redirected to the View, then you should be able to find it in your list of [Data Views](https://citrination.com/data_views). The first page that pops up should be the matrix display:
@@ -61,13 +61,13 @@ At the top, there are the following options:
 * **Access**: This gives you the option of changing the Privacy settings of your View.
 
 ## View plots
-Under the View name, the plots tab leads to a page like the following:
+Under the View name, the "Plots" tab leads to a page like the following:
 
 ![View plot config](fig/27_view_plots1.png "View plot config")
 
 There are many different plot types that you can choose from, including line plots, scatter plots, and histograms. The "Point Hover Values" specifies what information is displayed when your cursor hovers over a data point, and "Number of Responses" specifies how many data points to show. Depending the plot type, the subsequent settings will change.
 
-In this example, we will plot a histogram of band gap values in this dataset, so we select "Band gap" for the x-axis. This produces a plot (backed by [Plotly](https://plot.ly/)) that looks like the following:
+In this example, we will plot a histogram of band gap values in this dataset, so we select "Band gap" for the *x*-axis. This produces a plot (backed by [Plotly](https://plot.ly/)) that looks like the following:
 
 <img src="https://github.com/CitrineInformatics/community-tools/blob/enze/ui-tutorials/web_ui_examples/fig/27_view_plots2.png" alt="View histogram" width="450" height="422">  
 

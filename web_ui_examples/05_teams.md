@@ -39,7 +39,7 @@ The third tab lists resources shared with the team. This includes datasets and d
 
 ![Team resources](fig/45_team_resources.png "Team resources")
 
-Clicking on the name of the resource will take you to that resource's page. As described in the image above, you can use the **Access** page for each resource to add that resource to a team.
+Clicking on the name of the resource will take you to that resource's page. As described in the image above, you must use the **Access** page for each resource in order to add that resource to a team.
 
 ## Conclusion
 This concludes our discussion of how to create and manage Teams using the Citrination UI.  If you have further questions, please do not hesitate to [Contact Us](https://citrine.io/contact/).

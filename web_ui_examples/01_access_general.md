@@ -37,7 +37,7 @@ The User menu has four options on it. The first is your user profile, which look
 
 Here you can add information about yourself, like a biography, your research areas, and any linked IDs by clicking "Edit User Profile."
 
-Perhaps the most important option is the "Account Setting" option, which allows you to edit your personal account details, like your email address. It also has your **personal API Key**, which you will use for [API](http://citrineinformatics.github.io/python-citrination-client/index.html) authentication. You should never share this key with anyone or post it publicly. The third item in Account Settings is setting up [Two-Factor Authentication](https://authy.com/what-is-2fa/), which we advise but is certainly optional.
+Perhaps the most important option in the dropdown menu is the "Account Settings" option, which allows you to edit your personal account details, like your email address. It also has your **personal API Key**, which you will use for [API](http://citrineinformatics.github.io/python-citrination-client/index.html) authentication. You should never share this key with anyone or post it publicly. The third item in Account Settings is setting up [Two-Factor Authentication](https://authy.com/what-is-2fa/), which we advise but is certainly optional.
 
 ## Getting help
 At the bottom, you will see a table of six blue links:   
@@ -45,9 +45,9 @@ At the bottom, you will see a table of six blue links:
 <img src="https://github.com/CitrineInformatics/community-tools/blob/enze/ui-tutorials/web_ui_examples/fig/06_links_bottom.png" alt="Miscellaneous links" width="390" height="120">
 
 The three links in the right column contain the standard administrative and legal fine print. The three on the left, however, deserve a little bit of elaboration:
-* Report a Bug: As humans, we make mistakes. If you notice a bug on our platform, we would be forever grateful if you could report it.
-* Feedback: We're a small company aspiring to do high-impact work, and we want to prioritize the most urgent needs. Let us know how we're doing and how we can best help you.
-* Join our Newsletter: Our newsletter comes out once a week and contains the latest materials informatics academic research and business trends.
+* **Report a Bug**: As humans, we make mistakes. If you notice a bug on our platform, we would be forever grateful if you could report it.
+* **Feedback**: We're a small company aspiring to do high-impact work, and we want to prioritize the most urgent needs. Let us know how we're doing and how we can best help you.
+* **Join our Newsletter**: Our newsletter comes out once a week and contains the latest materials informatics academic research and business trends.
 
 ## Conclusion
 This concludes our discussion of the administrivia of the Citrination platform. As mentioned earlier, you should now feel comfortable with:

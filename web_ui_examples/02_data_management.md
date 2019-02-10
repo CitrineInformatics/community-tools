@@ -24,12 +24,12 @@ Datasets on Citrination are accessed under the "[Datasets](https://citrination.c
 You will see a row of headers describing the different categories for datasets. The category you're currently viewing is highlighted in blue, and this is Private ("My Datasets") by default. "Public" includes datasets that have been shared publicly by *any* Citrination user, and "Shared" includes datasets shared by/with members of your [Team](05_teams.md).
 
 Down below, you will see the list of datasets that fall under the category you've selected. Each row contains:
-* ID: The unique ID of the dataset.
-* Dataset Name: The name of the dataset. Clicking on this will give you more information (discussed later).
-* Record Count: The number of *PIF records* in this dataset. If you just uploaded data to a dataset, then this number is likely inaccurate.
-* Privacy: Whether this is a Public (everyone can see) or Private (not everyone can see) dataset.
-* Contributor: The username of the person who created the dataset.
-* Created At: A timestamp for when the most recent version of the dataset was created.
+* **ID**: The unique ID of the dataset.
+* **Dataset Name**: The name of the dataset. Clicking on this will give you more information (discussed later).
+* **Record Count**: The number of *PIF records* in this dataset. If you just uploaded data to a dataset, then this number is likely inaccurate as it takes time for records to be processed.
+* **Privacy**: Whether this is a Public (everyone can see) or Private (not everyone can see) dataset.
+* **Contributor**: The username of the person who created the dataset.
+* **Created At**: A timestamp for when the most recent version of the dataset was created.
 
 ## Upload data
 If this is your first time on the Citrination platform, then "My Datasets" is likely empty for you. Let's change that by uploading some data! Click the "Upload Data" button found near the top of the page, which will take you to same page that opens if you had clicked "[Add Data](https://citrination.com/add_data)" in the menu:   
@@ -45,7 +45,7 @@ If you choose this option, boxes will appear where you can give the dataset a na
 If you choose this option, the three options we just discussed are replaced by a dropdown menu that lists all the datasets you have access you. You then choose the dataset which you want to add data to.
 
 ### Ingester
-[Ingesters](https://help.citrination.com/knowledgebase/articles/1195249-citrination-file-ingesters) are Citrine-proprietary tools that turn materials data, which come in all forms, into PIF records that can be processed by our platform. We are continually increasing the number of ingesters we have in order to support more file formats. If you want the data that you upload to be processed into PIF records, you have to choose the correct ingester at this step. We will walk through two examples below.
+[Ingesters](https://help.citrination.com/knowledgebase/articles/1195249-citrination-file-ingesters) are Citrine-proprietary tools that turn materials data, which come in all forms, into PIF records that can be processed by our platform. We are continually increasing the number of ingesters we have in order to support more file formats. If you want the data that you upload to be processed into PIF records, you have to choose the correct ingester at this step (each ingester only works with one input file type). We will walk through two examples below.
 
 ### Choose files
 The final step is to choose the files containing the data you want to upload. As noted above, you have to choose files that contain data in the same format (all PIFs, all CSVs, etc). Each file can store multiple PIF records. You may upload files of any format to be stored on Citrination, though if they don't match the ingester then they will not get processed.
@@ -54,29 +54,29 @@ The final step is to choose the files containing the data you want to upload. As
 The data for this example is stored in the `data` folder in this directory.   
 1. You should create a new dataset and choose a name ("An Example Dataset," perhaps) and description.
 2. Choose the "Default Ingester," which takes PIF JSON files and converts them into PIF records.
-3. Choose the `band_gap_sc_data.json` file, which should have 11 PIF records.
+3. Choose the `band_gap_sc_data.json` file, which should have 11 PIF records. This dataset is a subset of the full [Band gaps from Strehlow and Cook](https://citrination.com/datasets/1160/) dataset.
 4. Click "Submit Files."
 
 ## Dataset info page
-Congratulations on adding data to your first dataset! When you click submit, you will be automatically redirected to the Dataset info page, which is shown below. This is the same page you would have arrived on by clicking the name of the dataset on the [Datasets](https://citrination.com/datasets) page.   
+Congratulations on adding data to your first dataset! When you click submit, you will be automatically redirected to the Dataset info page, which is shown below. This is the same page you would have arrived on by clicking the Name of the dataset on the [Datasets](https://citrination.com/datasets) page.   
 
 ![Dataset info page](fig/13_dataset_info.png "Dataset info page")   
 
 At the top of this page, you will see the name and description you gave this dataset during the creation phase. The "Edit" button underneath the name allows you to change these two fields.
 
-You will also notice a dataset ID number that is assigned to this dataset. In between the ID number and the "Edit" button is the version number. Newly created datasets will be Version 1, and it increases by 1 each time "Create new version" is pressed. Note that creating a new version will **delete** all the files and PIF records in the dataset, so handle with care. "Delete" will remove the entire dataset and associated PIFs.
+You will also notice a dataset ID number that is assigned to this dataset. In between the ID number and the "Edit" button is the version number. Newly created datasets will be Version 1, and it increases by 1 each time "Create new version" is pressed. Note that creating a new version will **delete** all the *files and PIF records* in the dataset (the dataset and its unique ID remain), so handle with care. "Delete" will remove the entire dataset and associated PIFs.
 
 The box on the right lists all the [Data Views](03_data_views.md) that include this dataset. Down below, on the "Search in Dataset" page, you will see a similar search interface as the main page, just with the PIF records limited to those in this dataset. You should see 11 PIF records at the moment.
 
 At the top, "Files" lists all the files in this dataset, including information on who contributed them, their ingest status, and the option to delete them. There is an "Add Files" button that we will return to shortly.
 
-Moving across the top, we come to the "Access" button. On this page you have the option of changing the Privacy setting of your dataset as well as sharing the dataset with different [Teams](05_teams.md). https://stuff_about_public_data.com
+Moving across the top, we come to the "Access" button. On this page you have the option of changing the Privacy settings of your dataset as well as sharing the dataset with different [Teams](05_teams.md). We encourage you to make new datasets **Public** to promote open science and support materials informatics research. Our data management principles can be found [here](https://citrination.com/datamanagement).
 
 ### YOUR TURN
 11 PIF records are not that many. Let's add some more!    
 1. Navigate to the "Files" tab and click "Add Files." Alternatively, click "Add Data" at the top.
 2. Select "Add to existing dataset" and select the dataset you just created.
-3. This time, instead of uploading PIFs, we will upload a CSV. Therefore, select the "[Citrine: Template CSV](https://help.citrination.com/knowledgebase/articles/1188136)" ingester from the dropdown menu.
+3. This time, instead of uploading PIFs, we will upload a CSV. Therefore, select the "[Citrine: Template CSV](https://help.citrination.com/knowledgebase/articles/1188136)" ingester from the dropdown menu. Pay attention to the header row formatting, which is important for ingestion to work properly.
 4. Choose the `band_gap_sc_data.csv` file, and submit for upload.
 
 You will be redirected to the "Files" page of the dataset you selected, where you can see an additional CSV in the list of files. After waiting for a bit, you should start to see the extra PIF records populate the search page. The total number should increase to 100. This is an example of how you can supplement an existing dataset with newly discovered data from the literature or calculations.
@@ -87,7 +87,7 @@ If you click on any PIF record on the search page, an image like the one below s
 ![PIF record](fig/14_pif_record.png "PIF record")    
 
 The Chemical Formula will appear at the top, followed by Properties in an organized table, and then References. The three buttons at the top do the following:
-* **Add Data**: You can add more properties to this PIF and multiple versions will be created and saved in the history. The `uid` (found in the URL) of the PIF remains the same. *Typically* not used since it is rare that only a single PIF in a dataset needs to be updated.
+* **Add Data**: You can add more properties to this PIF and multiple versions will be created and saved in the history. The `uid` (found in the URL) of the PIF remains the same. *Typically* not used since it is rare that only a single PIF in a dataset needs to be updated, and most users would just update the whole dataset.
 * **Dataset**: Clicking this returns you to the Dataset info page for the dataset that contains this particular PIF record.
 * **Download**: Clicking this will download this individual PIF record.
 

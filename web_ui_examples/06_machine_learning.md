@@ -7,6 +7,7 @@ In this guide, we will cover how to configure a machine learning (ML) model from
 After reading this guide^, you should be familiar with:
 * Choosing the set of inputs and output for a ML model
 * Assessing model quality through Model Reports     
+
 ^*Note*: This guide is dense and will likely take many read-throughs before things start to fully click. Turns out, ML is [h](https://machinelearningmastery.com/applied-machine-learning-is-hard/)[a](https://developers.google.com/machine-learning/problem-framing/hard)[r](http://ai.stanford.edu/~zayd/why-is-machine-learning-hard.html)[d](https://www.forbes.com/sites/janakirammsv/2018/01/01/why-do-developers-find-it-hard-to-learn-machine-learning/#7d62eccf6bf6); when applied to materials science, it might be [even harder](https://youtu.be/28Ue_jteKI4?t=254).
 
 ## Background knowledge
@@ -21,11 +22,11 @@ You might recall in the [Data Views guide](03_data_views.md) that we deferred co
 
 ![ML config](fig/51_ml_config.png "ML config")
 
-It is helpful to expand the description ("Show More") and read about the various parameters on this page. Down below, each property has its Descriptor Type (Categorical, Real, Organic, Inorganic, Alloy), Parameter Type (Input, Output, Latent variable, Ignore), and Values listed. If you would like to change a setting, click "edit" next to the corresponding property. We'll do this for "Property Crystallinity" because we want it as an Input rather than Output.
+It is helpful to expand the description ("Show More") and read about the various parameters on this page. On the bottom of that page, each property is listed with its **Descriptor Type** (Categorical, Real, Organic, Inorganic, Alloy), **Parameter Type** (Input, Output, Latent variable, Ignore), and **Values**. If you would like to change a setting, click "edit" next to the corresponding property. We'll edit "Property Crystallinity" because we want it as an Input rather than an Output.
 
 ![Set columns](fig/52_set_col_types.png "Set columns")
 
-The above menu will open up, allowing you to change the Variable Type to "Input." Depending on the Descriptor Type, this menu will show different options. *Categorical* descriptors will have all the categories listed for you to include (all are included by default), while *Real* descriptors will have a range of values for you to include. When you're all done—the other properties are fine, though you should always check each one—click "Okay" to collapse the menu, and finally "Save" at the very top.
+The above menu will open up, allowing you to change the Variable Type to "Input." Depending on the Descriptor Type, this menu will show different options. *Categorical* descriptors will have all the categories listed for you to include (all are included by default), while *Real* descriptors will have a range of values for you to include. When you're all done—the other properties are fine, though it's a good idea to check each one—click "Okay" to collapse the menu, and finally **Save** at the very top.
 
 ## Model training
 "Training" is the term that refers to a ML model learning the relationships in the data given. Blue progress bars will display at the top of your screen indicating which step it's currently on.
@@ -34,7 +35,7 @@ The above menu will open up, allowing you to change the Variable Type to "Input.
 
 Green boxes will appear at the top of the page informing you of when certain services are ready. Some services, like Model Reports, take longer than others, like Predict services. While you're waiting, if you navigate to the **Summary** page for your view, you will see the column headers listed with their configured settings for ML. You can always return to the Configuration page to change the property types.
 
-![ML summary](fig/53_ml_summary.png "ML summary")
+<img src="https://github.com/CitrineInformatics/community-tools/blob/enze/ui-tutorials/web_ui_examples/fig/53_ml_summary.png" alt="ML summary" width="336" height="354">  
 
 ## Model reports
 
@@ -43,10 +44,10 @@ Green boxes will appear at the top of the page informing you of when certain ser
 
 ### Feature statistics
 
-![Pearson correlation](fig/54_reports_pearson.png "Pearson correlation")
+<img src="https://github.com/CitrineInformatics/community-tools/blob/enze/ui-tutorials/web_ui_examples/fig/54_reports_pearson.png" alt="Pearson correlation" width="500" height="234">
 
 
-![t-SNE plot](fig/54_reports_tsne.png "t-SNE plot")
+<img src="https://github.com/CitrineInformatics/community-tools/blob/enze/ui-tutorials/web_ui_examples/fig/54_reports_tsne.png" alt="t-SNE plot" width="650" height="478">
 
 
 ### Model performance
@@ -62,10 +63,10 @@ Green boxes will appear at the top of the page informing you of when certain ser
 
 ### Performance plots
 
-![Predicted vs. Actual plot](fig/56_plot_pva.png "Predicted vs. Actual plot")
+<img src="https://github.com/CitrineInformatics/community-tools/blob/enze/ui-tutorials/web_ui_examples/fig/56_plot_pva.png" alt="Predicted vs. Actual plot" width="500" height="380">
 
 
-![Distribution of residuals](fig/56_plot_residual.png "Distribution of residuals")
+<img src="https://github.com/CitrineInformatics/community-tools/blob/enze/ui-tutorials/web_ui_examples/fig/56_plot_residual.png" alt="Distribution of residuals" width="500" height="395"> 
 
 
 

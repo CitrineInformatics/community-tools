@@ -11,26 +11,31 @@ After reading this guide, you should feel comfortable with:
 
 ## Background knowledge
 To get the most out of this guide, it is helpful to be familiar with:
-* How to train [ML models](06_machine_learning.md) on Citrination
+* How to train [ML models](06_machine_learning.md) in Citrination
+* [Uncertainty quantification](https://arxiv.org/pdf/1704.07423.pdf) in Citrination
 
 ## Predict
 
 ![Predict input](fig/61_predict_input.png "Predict input")
 
-![Predict plot](fig/62_predict_plot.png "Predict plot")
+
+<img src="https://github.com/CitrineInformatics/community-tools/blob/enze/ui-tutorials/web_ui_examples/fig/62_predict_plot.png" alt="Predict plot" width="500" height="383">
 
 
 ## Design
 
 ![Design settings 1](fig/63_design_settings1.png "Design settings 1")
 
-![Design settings 2](fig/63_design_settings2.png "Design settings 2")
+<img src="https://github.com/CitrineInformatics/community-tools/blob/enze/ui-tutorials/web_ui_examples/fig/63_design_settings2.png" alt="Design settings 2" width="600" height="524">
 
-![Design MEI](fig/64_design_mei.png "Design MEI")
 
-![Design MLI](fig/64_design_mli.png "Design MLI")
+<img src="https://github.com/CitrineInformatics/community-tools/blob/enze/ui-tutorials/web_ui_examples/fig/64_design_mei.png" alt="Design MEI" width="600" height="307">
 
-![Design history](fig/65_design_history.png "Design history")
+
+<img src="https://github.com/CitrineInformatics/community-tools/blob/enze/ui-tutorials/web_ui_examples/fig/64_design_mli.png" alt="Design MLI" width="600" height="323">
+
+
+<img src="https://github.com/CitrineInformatics/community-tools/blob/enze/ui-tutorials/web_ui_examples/fig/65_design_history.png" alt="Design history" width="500" height="190">
 
 
 ## Conclusion
