@@ -35,7 +35,7 @@ The above menu will open up, allowing you to change the Variable Type to "Input.
 
 Green boxes will appear at the top of the page informing you of when certain services are ready. Some services, like Model Reports, take longer than others, like Predict services. While you're waiting, if you navigate to the **Summary** page for your view, you will see the column headers listed with their configured settings for ML. You can always return to the Configuration page to change the property types.
 
-<img src="https://github.com/CitrineInformatics/community-tools/blob/enze/ui-tutorials/web_ui_examples/fig/53_ml_summary.png" alt="ML summary" width="336" height="354">  
+<img src="fig/53_ml_summary.png" alt="ML summary" width="336" height="354">  
 
 ## Model reports
 
@@ -44,10 +44,10 @@ Green boxes will appear at the top of the page informing you of when certain ser
 
 ### Feature statistics
 
-<img src="https://github.com/CitrineInformatics/community-tools/blob/enze/ui-tutorials/web_ui_examples/fig/54_reports_pearson.png" alt="Pearson correlation" width="500" height="234">
+<img src="fig/54_reports_pearson.png" alt="Pearson correlation" width="500" height="234">
 
 
-<img src="https://github.com/CitrineInformatics/community-tools/blob/enze/ui-tutorials/web_ui_examples/fig/54_reports_tsne.png" alt="t-SNE plot" width="650" height="478">
+<img src="fig/54_reports_tsne.png" alt="t-SNE plot" width="650" height="478">
 
 
 ### Model performance
@@ -63,10 +63,10 @@ Green boxes will appear at the top of the page informing you of when certain ser
 
 ### Performance plots
 
-<img src="https://github.com/CitrineInformatics/community-tools/blob/enze/ui-tutorials/web_ui_examples/fig/56_plot_pva.png" alt="Predicted vs. Actual plot" width="500" height="380">
+<img src="fig/56_plot_pva.png" alt="Predicted vs. Actual plot" width="500" height="380">
 
 
-<img src="https://github.com/CitrineInformatics/community-tools/blob/enze/ui-tutorials/web_ui_examples/fig/56_plot_residual.png" alt="Distribution of residuals" width="500" height="395"> 
+<img src="fig/56_plot_residual.png" alt="Distribution of residuals" width="500" height="395">
 
 
 

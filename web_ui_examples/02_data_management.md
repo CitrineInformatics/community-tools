@@ -34,7 +34,7 @@ Down below, you will see the list of datasets that fall under the category you'v
 ## Upload data
 If this is your first time on the Citrination platform, then "My Datasets" is likely empty for you. Let's change that by uploading some data! Click the "Upload Data" button found near the top of the page, which will take you to same page that opens if you had clicked "[Add Data](https://citrination.com/add_data)" in the menu:   
 
-<img src="https://github.com/CitrineInformatics/community-tools/blob/enze/ui-tutorials/web_ui_examples/fig/12_add_data.png" alt="Add data" width="670" height="632">   
+<img src="fig/12_add_data.png" alt="Add data" width="670" height="632">   
 
 Going through the items from top to bottom, the first choice to make is to decide if you're adding data to a new dataset (which must be created) or to an existing dataset.
 

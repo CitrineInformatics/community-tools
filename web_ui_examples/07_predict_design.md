@@ -16,26 +16,26 @@ To get the most out of this guide, it is helpful to be familiar with:
 
 ## Predict
 
-![Predict input](fig/61_predict_input.png "Predict input")
+<img src="fig/61_predict_input.png" alt="Predict input" width="650" height="361">
 
 
-<img src="https://github.com/CitrineInformatics/community-tools/blob/enze/ui-tutorials/web_ui_examples/fig/62_predict_plot.png" alt="Predict plot" width="500" height="383">
+<img src="fig/62_predict_plot.png" alt="Predict plot" width="500" height="383">
 
 
 ## Design
 
 ![Design settings 1](fig/63_design_settings1.png "Design settings 1")
 
-<img src="https://github.com/CitrineInformatics/community-tools/blob/enze/ui-tutorials/web_ui_examples/fig/63_design_settings2.png" alt="Design settings 2" width="600" height="524">
+<img src="fig/63_design_settings2.png" alt="Design settings 2" width="600" height="524">
 
 
-<img src="https://github.com/CitrineInformatics/community-tools/blob/enze/ui-tutorials/web_ui_examples/fig/64_design_mei.png" alt="Design MEI" width="600" height="307">
+<img src="fig/64_design_mei.png" alt="Design MEI" width="600" height="307">
 
 
-<img src="https://github.com/CitrineInformatics/community-tools/blob/enze/ui-tutorials/web_ui_examples/fig/64_design_mli.png" alt="Design MLI" width="600" height="323">
+<img src="fig/64_design_mli.png" alt="Design MLI" width="600" height="323">
 
 
-<img src="https://github.com/CitrineInformatics/community-tools/blob/enze/ui-tutorials/web_ui_examples/fig/65_design_history.png" alt="Design history" width="500" height="190">
+<img src="fig/65_design_history.png" alt="Design history" width="500" height="190">
 
 
 ## Conclusion

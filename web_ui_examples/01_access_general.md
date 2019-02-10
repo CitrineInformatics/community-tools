@@ -42,7 +42,7 @@ Perhaps the most important option in the dropdown menu is the "Account Settings"
 ## Getting help
 At the bottom, you will see a table of six blue links:   
 
-<img src="https://github.com/CitrineInformatics/community-tools/blob/enze/ui-tutorials/web_ui_examples/fig/06_links_bottom.png" alt="Miscellaneous links" width="390" height="120">
+<img src="fig/06_links_bottom.png" alt="Miscellaneous links" width="390" height="120">
 
 The three links in the right column contain the standard administrative and legal fine print. The three on the left, however, deserve a little bit of elaboration:
 * **Report a Bug**: As humans, we make mistakes. If you notice a bug on our platform, we would be forever grateful if you could report it.
