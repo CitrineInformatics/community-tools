@@ -8,7 +8,7 @@ After reading this guide^, you should be familiar with:
 * Choosing the set of inputs and output for a ML model
 * Assessing model quality through Model Reports     
 
-^*Note*: This guide is dense and will likely take many read-throughs before things start to fully click. Turns out, ML is [h](https://machinelearningmastery.com/applied-machine-learning-is-hard/)[a](https://developers.google.com/machine-learning/problem-framing/hard)[r](http://ai.stanford.edu/~zayd/why-is-machine-learning-hard.html)[d](https://www.forbes.com/sites/janakirammsv/2018/01/01/why-do-developers-find-it-hard-to-learn-machine-learning/#7d62eccf6bf6); when applied to materials science, it might be [even harder](https://youtu.be/28Ue_jteKI4?t=254).
+^ *Note*: This guide is quite dense and will likely take many read-throughs before things start to fully click. Turns out, ML is [h](https://machinelearningmastery.com/applied-machine-learning-is-hard/)[a](https://developers.google.com/machine-learning/problem-framing/hard)[r](http://ai.stanford.edu/~zayd/why-is-machine-learning-hard.html)[d](https://www.forbes.com/sites/janakirammsv/2018/01/01/why-do-developers-find-it-hard-to-learn-machine-learning/#7d62eccf6bf6); when applied to materials science, it might be [even harder](https://youtu.be/28Ue_jteKI4?t=254).
 
 ## Background knowledge
 To get the most out of this guide, it is helpful to be familiar with:
@@ -22,7 +22,9 @@ You might recall in the [Data Views guide](03_data_views.md) that we deferred co
 
 ![ML config](fig/51_ml_config.png "ML config")
 
-It is helpful to expand the description ("Show More") and read about the various parameters on this page. On the bottom of that page, each property is listed with its **Descriptor Type** (Categorical, Real, Organic, Inorganic, Alloy), **Parameter Type** (Input, Output, Latent variable, Ignore), and **Values**. If you would like to change a setting, click "edit" next to the corresponding property. We'll edit "Property Crystallinity" because we want it as an Input rather than an Output.
+It is helpful to expand the description ("Show More") and read about the various parameters on this page. On the bottom of that page, each property is listed with its **Descriptor Type** (Categorical, Real, Organic, Inorganic, Alloy), **Parameter Type** (Input, Output, Latent variable, Ignore), and **Values**. If you would like to change a setting, click "edit" next to the corresponding property. You need to have at least one input and at least one output (this is the [supervised learning](https://bigdata-madesimple.com/machine-learning-explained-understanding-supervised-unsupervised-and-reinforcement-learning/) paradigm).
+
+For this tutorial, we'll edit "Property Crystallinity" because we want it as an Input rather than an Output.
 
 ![Set columns](fig/52_set_col_types.png "Set columns")
 
@@ -33,21 +35,28 @@ The above menu will open up, allowing you to change the Variable Type to "Input.
 
 ![Model training](fig/55_model_training.png "Model training")
 
-Green boxes will appear at the top of the page informing you of when certain services are ready. Some services, like Model Reports, take longer than others, like Predict services. While you're waiting, if you navigate to the **Summary** page for your view, you will see the column headers listed with their configured settings for ML. You can always return to the Configuration page to change the property types.
+Green boxes will appear at the top of the page to inform you of when certain services are ready. Some services, like Model Reports, take longer than others, like Predict services. While you're waiting, if you navigate to the **Summary** page for your view, you will see the column headers listed with their configured settings for ML. You can always return to the **Configuration** page to change the property types.
 
 <img src="fig/53_ml_summary.png" alt="ML summary" width="336" height="354">  
 
 ## Model reports
+When your model has finished training, you can view the model properties and statistical summaries on the **Reports** page.
 
 ![Reports summary](fig/54_reports_summary.png "Reports summary")
 
-
 ### Feature statistics
+
+The "Data Summary" page will load by default and show two plots for each *output* property. The first plot is a bar chart of [Pearson correlation coefficient](https://www.spss-tutorials.com/pearson-correlation-coefficient/) values, which measure the linearity in the relationship between each input feature and the output variable. A value of `-1` indicates a perfectly negative linear relation, a value of `1` indicates a perfectly positive linear relation, and a value of `0` indicates no linear relation. Note, however, that [correlation does not imply causation](https://towardsdatascience.com/why-correlation-does-not-imply-causation-5b99790df07e).
 
 <img src="fig/54_reports_pearson.png" alt="Pearson correlation" width="500" height="234">
 
+You will also notice that the input we selected was "Chemical Formula," but the actual features that were generated were statistical metrics over elemental properties such as "electronegativity" and "atomic fraction." These are derived from the [Magpie](http://oqmd.org/static/analytics/magpie/doc/) library and explained in [this paper](https://www.nature.com/articles/npjcompumats201628).
+
+The second figure on the "Data Summary" page is a **t-SNE** plot, which is short for t-Distributed Stochastic Neighbor Embedding. As you saw above, materials tend to live in *high-dimensional space*, meaning that there are tens to hundreds of features used to represent a material, and it can be very difficult to visualize and wrap our minds around 100+ dimensions. Therefore, we employ t-SNE as a *dimensionality reduction* technique to project the data onto 2 dimensions for ease of visualization, as shown below.
 
 <img src="fig/54_reports_tsne.png" alt="t-SNE plot" width="650" height="478">
+
+This technique was developed about [a decade ago](https://lvdmaaten.github.io/tsne/) ([easier explanation](https://www.analyticsvidhya.com/blog/2017/01/t-sne-implementation-r-python/)) and it's a powerful projection tool because nearby points in high dimensional space remain close in 2D while distant points remain far apart. 
 
 
 ### Model performance

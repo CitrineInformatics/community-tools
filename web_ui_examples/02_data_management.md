@@ -45,7 +45,15 @@ If you choose this option, boxes will appear where you can give the dataset a na
 If you choose this option, the three options we just discussed are replaced by a dropdown menu that lists all the datasets you have access you. You then choose the dataset which you want to add data to.
 
 ### Ingester
-[Ingesters](https://help.citrination.com/knowledgebase/articles/1195249-citrination-file-ingesters) are Citrine-proprietary tools that turn materials data, which come in all forms, into PIF records that can be processed by our platform. We are continually increasing the number of ingesters we have in order to support more file formats. If you want the data that you upload to be processed into PIF records, you have to choose the correct ingester at this step (each ingester only works with one input file type). We will walk through two examples below.
+[Ingesters](https://help.citrination.com/knowledgebase/articles/1195249-citrination-file-ingesters) are Citrine-proprietary tools that turn materials data, which come in all forms, into PIF records that can be processed by our platform. We are continually increasing the number of ingesters we have in order to support more file formats. Currently supported file formats that are commonly used by the materials community include:
+* [CSV](https://help.citrination.com/knowledgebase/articles/1188136) - Comma Separated Values
+* PIF - Physical Information File
+* [CIF](https://help.citrination.com/knowledgebase/articles/1200448) - Crystallographic Information File
+* [VASP](https://help.citrination.com/knowledgebase/articles/1804075) - Vienna Ab initio Simulation Package
+* [Espresso](https://help.citrination.com/knowledgebase/articles/1804069) - Quantum Espresso DFT calculations
+* [XRD](https://help.citrination.com/knowledgebase/articles/1804294) - X-ray Diffraction .xrdml files
+
+If you want the data that you upload to be processed into PIF records, you have to choose the correct ingester at this step (each ingester only works with one input file type). We will walk through two examples below.
 
 ### Choose files
 The final step is to choose the files containing the data you want to upload. As noted above, you have to choose files that contain data in the same format (all PIFs, all CSVs, etc). Each file can store multiple PIF records. You may upload files of any format to be stored on Citrination, though if they don't match the ingester then they will not get processed.
@@ -66,7 +74,7 @@ At the top of this page, you will see the name and description you gave this dat
 
 You will also notice a dataset ID number that is assigned to this dataset. In between the ID number and the "Edit" button is the version number. Newly created datasets will be Version 1, and it increases by 1 each time "Create new version" is pressed. Note that creating a new version will **delete** all the *files and PIF records* in the dataset (the dataset and its unique ID remain), so handle with care. "Delete" will remove the entire dataset and associated PIFs.
 
-The box on the right lists all the [Data Views](03_data_views.md) that include this dataset. Down below, on the "Search in Dataset" page, you will see a similar search interface as the main page, just with the PIF records limited to those in this dataset. You should see 11 PIF records at the moment.
+ Down below, on the "Search in Dataset" page, you will see a similar search interface as the main page, just with the PIF records limited to those in this dataset. You should see 11 PIF records at the moment, one for each system in the PIF you uploaded. The box on the right lists all the [Data Views](03_data_views.md) that include this dataset.
 
 At the top, "Files" lists all the files in this dataset, including information on who contributed them, their ingest status, and the option to delete them. There is an "Add Files" button that we will return to shortly.
 
@@ -76,10 +84,10 @@ Moving across the top, we come to the "Access" button. On this page you have the
 11 PIF records are not that many. Let's add some more!    
 1. Navigate to the "Files" tab and click "Add Files." Alternatively, click "Add Data" at the top.
 2. Select "Add to existing dataset" and select the dataset you just created.
-3. This time, instead of uploading PIFs, we will upload a CSV. Therefore, select the "[Citrine: Template CSV](https://help.citrination.com/knowledgebase/articles/1188136)" ingester from the dropdown menu. Pay attention to the header row formatting, which is important for ingestion to work properly.
+3. This time, instead of uploading PIFs, we will upload a CSV. Therefore, select the "[Citrine: Template CSV](https://help.citrination.com/knowledgebase/articles/1188136)" ingester from the dropdown menu. Pay attention to the header row formatting, which is important for ingestion to work properly. Empty cells in the CSV will be safely ignored by the ingester.
 4. Choose the `band_gap_sc_data.csv` file, and submit for upload.
 
-You will be redirected to the "Files" page of the dataset you selected, where you can see an additional CSV in the list of files. After waiting for a bit, you should start to see the extra PIF records populate the search page. The total number should increase to 100. This is an example of how you can supplement an existing dataset with newly discovered data from the literature or calculations.
+You will be redirected to the "Files" page of the dataset you selected, where you can see an additional CSV in the list of files. After waiting for a bit, you should start to see the extra PIF records, one for each row in your CSV, populate the search page. The total number should increase to 100. This is an example of how you can supplement an existing dataset with newly discovered data from the literature or calculations.
 
 ## PIF record
 If you click on any PIF record on the search page, an image like the one below should appear:   
