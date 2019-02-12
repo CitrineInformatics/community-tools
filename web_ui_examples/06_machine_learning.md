@@ -8,11 +8,11 @@ After reading this guide^, you should be familiar with:
 * Choosing the set of inputs and output for a ML model
 * Assessing model quality through Model Reports     
 
-^ *Note*: This guide is quite dense and will likely take many read-throughs before things start to fully click. Turns out, ML is [h](https://machinelearningmastery.com/applied-machine-learning-is-hard/)[a](https://developers.google.com/machine-learning/problem-framing/hard)[r](http://ai.stanford.edu/~zayd/why-is-machine-learning-hard.html)[d](https://www.forbes.com/sites/janakirammsv/2018/01/01/why-do-developers-find-it-hard-to-learn-machine-learning/#7d62eccf6bf6); when applied to materials science, it might be [even harder](https://youtu.be/28Ue_jteKI4?t=254).
+^ *Note*: This guide is *quite dense* and will likely take many read-throughs before things start to click. There are many external links for context, but they are not essential (you can ignore them if they're distracting) and you should not feel like you have to understand everything right away. Turns out, ML is [h](https://machinelearningmastery.com/applied-machine-learning-is-hard/)[a](https://developers.google.com/machine-learning/problem-framing/hard)[r](http://ai.stanford.edu/~zayd/why-is-machine-learning-hard.html)[d](https://www.forbes.com/sites/janakirammsv/2018/01/01/why-do-developers-find-it-hard-to-learn-machine-learning/#7d62eccf6bf6); when applied to materials science, it might be [even harder](https://youtu.be/28Ue_jteKI4?t=254).
 
 ## Background knowledge
 To get the most out of this guide, it is helpful to be familiar with:
-* How to create [data views](https://citrination.com/data_views/) on Citrination ([guide](03_data_view.md)).
+* How to create [data views](https://citrination.com/data_views/) on Citrination ([guide](03_data_views.md)).
 * Basic machine learning. This is understandably vague and requires prerequisites in and of itself.
   * [This YouTube video](https://www.youtube.com/watch?v=nWk6QlwvXok), made by Julia Ling, gives an introduction to ML for materials science.
   * [This visual](http://www.r2d3.us/visual-intro-to-machine-learning-part-1/) is also a gentle introduction.
@@ -22,16 +22,18 @@ You might recall in the [Data Views guide](03_data_views.md) that we deferred co
 
 ![ML config](fig/51_ml_config.png "ML config")
 
+### Set column types
+
 It is helpful to expand the description ("Show More") and read about the various parameters on this page. On the bottom of that page, each property is listed with its **Descriptor Type** (Categorical, Real, Organic, Inorganic, Alloy), **Parameter Type** (Input, Output, Latent variable, Ignore), and **Values**. If you would like to change a setting, click "edit" next to the corresponding property. You need to have at least one input and at least one output (this is the [supervised learning](https://bigdata-madesimple.com/machine-learning-explained-understanding-supervised-unsupervised-and-reinforcement-learning/) paradigm).
 
-For this tutorial, we'll edit "Property Crystallinity" because we want it as an Input rather than an Output.
+For this tutorial, we'll edit "Property Crystallinity" because we want it as an Input rather than an Output. Specifically, we will use Chemical Formula (Inorganic) and Crystallinity (Categorical) to predict the Band Gap (Real).
 
 ![Set columns](fig/52_set_col_types.png "Set columns")
 
 The above menu will open up, allowing you to change the Variable Type to "Input." Depending on the Descriptor Type, this menu will show different options. *Categorical* descriptors will have all the categories listed for you to include (all are included by default), while *Real* descriptors will have a range of values for you to include. When you're all done—the other properties are fine, though it's a good idea to check each one—click "Okay" to collapse the menu, and finally **Save** at the very top.
 
 ## Model training
-"Training" is the term that refers to a ML model learning the relationships in the data given. Blue progress bars will display at the top of your screen indicating which step it's currently on.
+"Training" is the term that refers to a ML model learning the relationships in the data given. In the background, Citrination trains a **random forest (RF)** model ([Wikipedia](https://en.wikipedia.org/wiki/Random_forest), [Brieman himself](https://www.stat.berkeley.edu/~breiman/RandomForests/cc_home.htm), [~accurate layman example](http://blog.echen.me/2011/03/14/laymans-introduction-to-random-forests/)) by default to fit the data based on the chosen inputs and outputs. Blue progress bars will display at the top of your screen indicating which step of the training process it's currently on.
 
 ![Model training](fig/55_model_training.png "Model training")
 
@@ -46,41 +48,55 @@ When your model has finished training, you can view the model properties and sta
 
 ### Feature statistics
 
-The "Data Summary" page will load by default and show two plots for each *output* property. The first plot is a bar chart of [Pearson correlation coefficient](https://www.spss-tutorials.com/pearson-correlation-coefficient/) values, which measure the linearity in the relationship between each input feature and the output variable. A value of `-1` indicates a perfectly negative linear relation, a value of `1` indicates a perfectly positive linear relation, and a value of `0` indicates no linear relation. Note, however, that [correlation does not imply causation](https://towardsdatascience.com/why-correlation-does-not-imply-causation-5b99790df07e).
+The "Data Summary" page will load by default and show two plots for each *output* property. The first plot is a bar chart of [Pearson correlation coefficient](https://www.spss-tutorials.com/pearson-correlation-coefficient/) values, which measure the linearity in the relationship between each input feature and the output variable. A value of `-1` indicates a perfectly negative linear relation, a value of `1` indicates a perfectly positive linear relation, and a value of `0` indicates no linear relation. The correlation coefficient can help you build intuition about the dependence of the output on individual features. Note, however, that:
+1. There can still be *non-linear* and compound relationships in your data that are not captured here.
+2. [Correlation between input-output does not imply causation](https://towardsdatascience.com/why-correlation-does-not-imply-causation-5b99790df07e).
 
 <img src="fig/54_reports_pearson.png" alt="Pearson correlation" width="500" height="234">
 
-You will also notice that the input we selected was "Chemical Formula," but the actual features that were generated were statistical metrics over elemental properties such as "electronegativity" and "atomic fraction." These are derived from the [Magpie](http://oqmd.org/static/analytics/magpie/doc/) library and explained in [this paper](https://www.nature.com/articles/npjcompumats201628).
+You will also notice that the input we selected was "Chemical Formula," but the actual features that were generated are statistical metrics over elemental properties such as "electronegativity" and "atomic fraction." These are borrowed from the [Magpie](http://oqmd.org/static/analytics/magpie/doc/) library and explained in [this paper](https://www.nature.com/articles/npjcompumats201628).
 
-The second figure on the "Data Summary" page is a **t-SNE** plot, which is short for t-Distributed Stochastic Neighbor Embedding. As you saw above, materials tend to live in *high-dimensional space*, meaning that there are tens to hundreds of features used to represent a material, and it can be very difficult to visualize and wrap our minds around 100+ dimensions. Therefore, we employ t-SNE as a *dimensionality reduction* technique to project the data onto 2 dimensions for ease of visualization, as shown below.
+The second figure on the "Data Summary" page is a **t-SNE** plot, which is short for t-Distributed Stochastic Neighbor Embedding. As you saw above, materials tend to live in *high-dimensional space*, meaning that there are tens to hundreds of features used to represent a material, and it is impossible to visualize such high-dimensional space. Therefore, we employ t-SNE as a *dimensionality reduction* technique to project the data onto 2 dimensions for ease of visualization, as shown below.
 
 <img src="fig/54_reports_tsne.png" alt="t-SNE plot" width="650" height="478">
 
-This technique was developed about [a decade ago](https://lvdmaaten.github.io/tsne/) ([easier explanation](https://www.analyticsvidhya.com/blog/2017/01/t-sne-implementation-r-python/)) and it's a powerful projection tool because nearby points in high dimensional space remain close in 2D while distant points remain far apart. 
-
+This technique was developed about [a decade ago](https://lvdmaaten.github.io/tsne/) ([simpler explanation](https://www.analyticsvidhya.com/blog/2017/01/t-sne-implementation-r-python/)) and it's a powerful projection tool because nearby points in high dimensional space remain close in 2D while distant points remain far apart. The points in our plot are color-coded based on the property value (as indicated by the color bar), and you can hover over each data point to obtain more information such as the chemical formula. t-SNE plots are helpful for identifying clusters and structures in your data. Note that because the t-SNE plot is stochastic (i.e. random), it will change if you retrain your View.
 
 ### Model performance
+Next we switch over to the "Model Report" tab, which displays how well your model performed at predicting each output variable from the set of inputs you provided. Let's expand the "Property Band gap" header.
 
-![Model summary](fig/55_model_summary.png "Model summary")
+![Model settings](fig/55_model_settings.png "Model settings")
 
+Under **Model Settings**, you will find the parameters used to fit the [Lolo RF](https://github.com/CitrineInformatics/lolo) model. All of these settings are chosen automatically (internally) to give the best performance, and the two that we want to highlight in particular are:
+* **Jackknife uncertainty estimation**: When set to *true*, this means the [jackknife method](http://jmlr.org/papers/volume15/wager14a/wager14a.pdf) is used to estimate the variance, and thereby uncertainty, in the RF estimators.
+* **Cross-validation folds**: [Cross validation](https://towardsdatascience.com/cross-validation-70289113a072) (CV) is an important technique in machine learning to determine model hyper-parameters and assess model effectiveness for extrapolation. *k*-fold CV refers to splitting the data into *k* groups, training on *k-1* groups, validating on the last group, and repeating this validation *k* times for each group left out.
 
 ![Feature importance](fig/55_model_features.png "Feature importance")
 
+Following the model settings is a ranked list of important features, calculated based on their contributions to how splits were made in the decision trees. This list is illuminating and informative both in the ways that it matches physical intuition (like "Maximum electronegativity difference") and in the ways that it deviates (therein lies the power of ML).
 
 ![Model performance](fig/55_model_performance.png "Model performance")
 
+Finally, we arrive at the model performance table, which gives four metrics that quantify the model performance. It's recommended to click on "Show More" the first several times and read through the explanations. Here, we will explain what each of the values means and what the ideal values correspond to.
+* **Root-mean-square error (RMSE)**: This value, in units of the predicted variable, measures the difference between predicted and actual values. We want this value to be as small as possible (hence 0.0 ideal), and the magnitude is property and units dependent.
+* **Non-dimensional model error (NDE)**: This value, boxed because it is arguably the most important metric, measures how your model performs against a naive model that guesses the mean value each time. The RMSE from your model is divided by the RMSE of the guess-the-mean model and this value is reported.
+* **Uncertainty: Fraction of actual values**: This value counts how many of the error bars, centered around the predicted value, include the actual values (green line below). Because the error bars represent 1 standard deviation, an ideal fraction, assuming normally distributed errors, is 0.68.
+* **Uncertainty: RMS of standard errors**: This value represents the error after scaling the predicted values and is ideally 1 for a true Normal distribution.
 
 ### Performance plots
 
+At the bottom of the page, we display two plots to visualize the model performance.
+
 <img src="fig/56_plot_pva.png" alt="Predicted vs. Actual plot" width="500" height="380">
 
+The first is a **Predicted vs. Actual plot**, which plots the values predicted by the model against the actual values from the data. The error bars represent +/- one standard deviation, and the green line represents the ideal behavior where every prediction matches the actual value. "Extrapolating" values are for examples that are sufficiently different from the training data (based on a proprietary metric), while "Not extrapolating" values are examples that are similar to the training data and *typically* exhibit higher predictive accuracy. This plot is interactive, so you can hover over the points to reveal more information, zoom in/out, and click in the legend to reveal/hide different sets of points.
 
 <img src="fig/56_plot_residual.png" alt="Distribution of residuals" width="500" height="395">
 
-
+The second plot is a distribution of residuals, which is the signed difference (prediction - actual). This gives another visual interpretation of our model, in the hopes that for many cases, our errors are small and normally distributed around 0. The orange bars contain all the residuals and the blue curve is a normal distribution fit to the bars.
 
 ## Conclusion
-Whew! This concludes our lengthy discussion of ML on Citrination. At this point, you should be familiar with:
+Ta-da! This concludes our discussion of ML on Citrination. At this point, you should be familiar with:
 * Choosing the set of inputs and output for a ML model
 * Assessing model quality through Model Reports
 

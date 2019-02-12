@@ -8,4 +8,5 @@ This folder contains examples (Jupyter notebooks) of how to interface with the [
 * scipy
 
 ## Additional resources
-More examples can be found in our public [learn-citrination](https://github.com/CitrineInformatics/learn-citrination) GitHub repo.
+* More API examples can be found in our public [learn-citrination](https://github.com/CitrineInformatics/learn-citrination) GitHub repo.
+* Screenshot tutorials of our web UI can be found in a [separate folder](../web_ui_examples).

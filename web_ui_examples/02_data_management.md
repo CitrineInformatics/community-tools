@@ -52,6 +52,7 @@ If you choose this option, the three options we just discussed are replaced by a
 * [VASP](https://help.citrination.com/knowledgebase/articles/1804075) - Vienna Ab initio Simulation Package
 * [Espresso](https://help.citrination.com/knowledgebase/articles/1804069) - Quantum Espresso DFT calculations
 * [XRD](https://help.citrination.com/knowledgebase/articles/1804294) - X-ray Diffraction .xrdml files
+* [PDB](https://help.citrination.com/knowledgebase/articles/1811464) - Pandat phase diagram calculations
 
 If you want the data that you upload to be processed into PIF records, you have to choose the correct ingester at this step (each ingester only works with one input file type). We will walk through two examples below.
 
