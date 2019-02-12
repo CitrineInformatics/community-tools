@@ -33,7 +33,7 @@ For this tutorial, we'll edit "Property Crystallinity" because we want it as an 
 The above menu will open up, allowing you to change the Variable Type to "Input." Depending on the Descriptor Type, this menu will show different options. *Categorical* descriptors will have all the categories listed for you to include (all are included by default), while *Real* descriptors will have a range of values for you to include. When you're all done—the other properties are fine, though it's a good idea to check each one—click "Okay" to collapse the menu, and finally **Save** at the very top.
 
 ## Model training
-"Training" is the term that refers to a ML model learning the relationships in the data given. In the background, Citrination trains a **random forest (RF)** model ([Wikipedia](https://en.wikipedia.org/wiki/Random_forest), [Brieman himself](https://www.stat.berkeley.edu/~breiman/RandomForests/cc_home.htm), [~accurate layman example](http://blog.echen.me/2011/03/14/laymans-introduction-to-random-forests/)) to fit the data. Blue progress bars will display at the top of your screen indicating which step of the training process it's currently on.
+"Training" is the term that refers to a ML model learning the relationships in the data given. In the background, Citrination trains a **random forest (RF)** model ([Wikipedia](https://en.wikipedia.org/wiki/Random_forest), [Brieman himself](https://www.stat.berkeley.edu/~breiman/RandomForests/cc_home.htm), [~accurate layman example](http://blog.echen.me/2011/03/14/laymans-introduction-to-random-forests/)) by default to fit the data based on the chosen inputs and outputs. Blue progress bars will display at the top of your screen indicating which step of the training process it's currently on.
 
 ![Model training](fig/55_model_training.png "Model training")
 
@@ -54,7 +54,7 @@ The "Data Summary" page will load by default and show two plots for each *output
 
 <img src="fig/54_reports_pearson.png" alt="Pearson correlation" width="500" height="234">
 
-You will also notice that the input we selected was "Chemical Formula," but the actual features that were generated are statistical metrics over elemental properties such as "electronegativity" and "atomic fraction." These are derived from the [Magpie](http://oqmd.org/static/analytics/magpie/doc/) library and explained in [this paper](https://www.nature.com/articles/npjcompumats201628).
+You will also notice that the input we selected was "Chemical Formula," but the actual features that were generated are statistical metrics over elemental properties such as "electronegativity" and "atomic fraction." These are borrowed from the [Magpie](http://oqmd.org/static/analytics/magpie/doc/) library and explained in [this paper](https://www.nature.com/articles/npjcompumats201628).
 
 The second figure on the "Data Summary" page is a **t-SNE** plot, which is short for t-Distributed Stochastic Neighbor Embedding. As you saw above, materials tend to live in *high-dimensional space*, meaning that there are tens to hundreds of features used to represent a material, and it is impossible to visualize such high-dimensional space. Therefore, we employ t-SNE as a *dimensionality reduction* technique to project the data onto 2 dimensions for ease of visualization, as shown below.
 
@@ -67,7 +67,7 @@ Next we switch over to the "Model Report" tab, which displays how well your mode
 
 ![Model settings](fig/55_model_settings.png "Model settings")
 
-Under **Model Settings**, you will find the parameters used to fit the [lolo RF](https://github.com/CitrineInformatics/lolo) model. All of these settings are chosen automatically (internally) to give the best performance, and the two that we want to highlight in particular are:
+Under **Model Settings**, you will find the parameters used to fit the [Lolo RF](https://github.com/CitrineInformatics/lolo) model. All of these settings are chosen automatically (internally) to give the best performance, and the two that we want to highlight in particular are:
 * **Jackknife uncertainty estimation**: When set to *true*, this means the [jackknife method](http://jmlr.org/papers/volume15/wager14a/wager14a.pdf) is used to estimate the variance, and thereby uncertainty, in the RF estimators.
 * **Cross-validation folds**: [Cross validation](https://towardsdatascience.com/cross-validation-70289113a072) (CV) is an important technique in machine learning to determine model hyper-parameters and assess model effectiveness for extrapolation. *k*-fold CV refers to splitting the data into *k* groups, training on *k-1* groups, validating on the last group, and repeating this validation *k* times for each group left out.
 
