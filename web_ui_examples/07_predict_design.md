@@ -48,12 +48,15 @@ At the top, the "Run" button is highlighted in blue—but before we press that, 
 
 ### Design results
 There are two sets of candidates returned from the design process. The first set, **Maximum Expected Improvement (MEI)**, lists materials in ranked order of the materials expected to best maximize the targets and satisfy the constraints. The name comes from the fact that these candidates have a mean predicted value that is higher than all other candidates. The "MEI Score" isn't particularly important other than establishing a ranking. If you scroll to the right, you will see the chemical formula along with the predicted values and uncertainty. You want to look for candidates with a non-zero uncertainty, because those are new candidates that aren't found in the training data.
-<img src="fig/64_design_mei.png" alt="Design MEI" width="450" height="393">
+
+<img src="fig/64_design_mei.png" alt="Design MEI" width="450" height="230">
 
 The second set of materials, **Maximum Likelihood of Improvement (MLI)**, selects candidates most likely to have a higher target value than the best previously measured material, after the uncertainty has been taken into account (for a more in-depth discussion, see [this paper](https://arxiv.org/pdf/1704.07423.pdf)). The results table that is generated can be interpreted similarly to the first one.
-<img src="fig/64_design_mli.png" alt="Design MLI" width="600" height="323">
+
+<img src="fig/64_design_mli.png" alt="Design MLI" width="450" height="242">
 
 Finally, at the top right of the page, you have the option of saving design results. You can then click "View Saved Candidates" at a later date and access your history of saved design runs for reference or further optimization.
+
 <img src="fig/65_design_history.png" alt="Design history" width="500" height="190">
 
 ## Conclusion
