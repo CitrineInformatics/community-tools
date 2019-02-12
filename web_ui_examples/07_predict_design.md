@@ -1,7 +1,7 @@
 # Predict and Design
 *Authors: Enze Chen*
 
-In this document, we will cover how to use the Predict and Design interfaces on the Citrination web UI. These services are enabled once you have constructed a machine learning (ML) model and they can be accessed from the data view page.
+In this document, we will cover how to use the Predict and Design endpoints on the Citrination web UI. These services are core elements of [Citrine's sequential learning framework](https://citrine.io/platform/sequential-learning/). They are enabled once you have constructed a machine learning (ML) model and they can be accessed from each data view.
 
 ## Learning outcomes
 After reading this guide, you should feel comfortable with:
