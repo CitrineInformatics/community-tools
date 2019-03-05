@@ -18,6 +18,12 @@ client = CitrinationClient(
 dataset_id = 118
 data_view_id = ''
 
+def get_config():
+    """
+
+    :return:
+    """
+    pass
 
 def check_for_view(client, data_view_id):
     """
@@ -79,6 +85,7 @@ def build_data_view(client):
     dv_config = dv_builder.build()
     name = 'pypaws_test_suite_dataview'
     description = 'A dataview set up for SLAC SMASH-ML Pd nanoparticle synthesis'
+    print(dv_config)
     data_view_id = client.data_views.create(dv_config, name=name, description=description)
 
     return data_view_id
