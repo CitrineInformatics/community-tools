@@ -1,6 +1,5 @@
 #### standard packages ####
 from os import environ
-import ast
 
 #### third party libraries ####
 from citrination_client import CitrinationClient
@@ -16,12 +15,6 @@ client = CitrinationClient(
 #### Initialize the client
 data_view_id = '117'
 
-def get_config():
-    """
-
-    :return:
-    """
-    pass
 
 def clone_data_view(client, target):
     """
