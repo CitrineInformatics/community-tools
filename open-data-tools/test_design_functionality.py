@@ -14,8 +14,8 @@ client = CitrinationClient(
 )
 
 #### Initialize the client
-dataset_id = 118
-data_view_id = 117
+dataset_id = 111
+data_view_id = 97
 model_client = client.models
 
 #### Submit a design request
