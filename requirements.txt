@@ -1,4 +1,4 @@
-citrination_client>=4.9.2
+citrination_client==4.9.2
 pypif>=2.1.1
 
 pandas>=0.23
