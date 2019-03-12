@@ -3,10 +3,10 @@ This folder contains examples (Jupyter notebooks) of how to interface with the [
 
 ## Organization
 There are several notebooks in this repository that are part of a series of tutorials, though they also make great standalone references. They are:
-1. [DataClient tutorial](data_client_api_tutorial.ipynb) - This introduces PyCC and the `DataClient` for uploading and managing datasets.
-1. [DataViewsClient tutorial](data_views_api_tutorial.ipynb) - This introduces the `DataViewsClient` for creating views and ML configurations through the API.
-1. [ModelsClient tutorial](models_client_api_tutorial.ipynb) - This introduces the `ModelsClient` for analyzing data views and submitting predict and design runs.
-1. [Sequential learning tutorial](sequential_learning_api_tutorial.ipynb) - This combines all the above elements to create an end-to-end sequential learning demo.
+1. [DataClient tutorial](1_data_client_api_tutorial.ipynb) - This introduces PyCC and the `DataClient` for uploading and managing datasets.
+1. [DataViewsClient tutorial](2_data_views_api_tutorial.ipynb) - This introduces the `DataViewsClient` for creating views and ML configurations through the API.
+1. [ModelsClient tutorial](3_models_client_api_tutorial.ipynb) - This introduces the `ModelsClient` for analyzing data views and submitting predict and design runs.
+1. [Sequential learning tutorial](4_sequential_learning_api_tutorial.ipynb) - This combines all the above elements to create an end-to-end sequential learning demo.
 
 The other notebooks demonstrate other important aspects of the Citrination API.
 
