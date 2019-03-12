@@ -30,7 +30,7 @@ As you can see, there is tremendous flexibility in how search queries are constr
 When "Search" is pressed, any relevant records are returned at the bottom.
 
 ## Examples
-We will use the dataset we uploaded in a [previous tutorial](02_data_management.md) to demonstrate the search functionality. If you navigate to that dataset's page, and input `MnO2` in the "Material Name" field, you should see a single PIF result for manganese(IV) oxide appear. More complex searches can be constructed as well, such as `(Mn, Mo, Zr)#O#`, which will search for all oxides with manganese, molybdenum, and zirconium in any oxidation state.
+We will use the dataset we uploaded in a [previous tutorial](02_data_management.md) to demonstrate the search functionality. If you navigate to that dataset's page, and input `MnO2` in the "Material Name" field, you should see a single PIF result for manganese(IV) oxide appear. More complex searches can be constructed as well, such as `(Mn, Mo, Zr)#O#`, which will search for all oxides with manganese, molybdenum, and zirconium in any oxidation state. More details on wildcard searches can be found in the [Citrination Knowledge Base](https://help.citrination.com/knowledgebase/articles/1838953-search-special-characters-and-wildcards).
 
 ![Metal oxides](fig/32_search_oxides.png "Metal oxides")
 
