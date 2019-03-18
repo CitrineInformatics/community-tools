@@ -1,3 +1,8 @@
+'''
+Authors: Eddie Kim, Enze Chen
+This file contains wrapper functions that are used in the sequential learning API tutorial notebook. Detailed docstrings with method fuctions and parameters are given below.
+'''
+
 import json
 from collections import OrderedDict
 from time import sleep
