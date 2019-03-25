@@ -122,7 +122,9 @@ def build_view_and_get_id(client:CitrinationClient, dataset_id:int,
     dv_builder.model_type('default') # random forest
 
     for key_name in input_keys:
-        desc_x = RealDescriptor(key=key_name)
+        desc_x = RealDescriptor(key=key_name,\
+        						lower_bound=-9999.0,\
+        						upper_bound=9999.0)
         dv_builder.add_descriptor(desc_x, role='input')
 
     for key_name in output_keys:
