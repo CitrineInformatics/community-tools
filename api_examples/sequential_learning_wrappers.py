@@ -131,7 +131,6 @@ def build_view_and_get_id(client:CitrinationClient, dataset_id:int,
         desc_y = RealDescriptor(key=key_name,\
         						lower_bound=-9999.0,\
         						upper_bound=9999.0)
-#       dv_builder.add_descriptor(desc_x, role='input')
         dv_builder.add_descriptor(desc_y, role='output')
 
     dv_config = dv_builder.build()
