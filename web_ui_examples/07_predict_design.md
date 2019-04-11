@@ -23,7 +23,7 @@ Here you can request predictions for new materials by supplying inputs to the th
 
 <img src="fig/62_predict_plot.png" alt="Predict plot" width="500" height="383">
 
-You should get an output that resembles the one above. The exact values will differ due to the randomness in the random forest model. It's important to know that the value and uncertainty of the prediction appear at the top. The plot gives a visual representation for how these numbers were obtained. Namely, samples were drawn from the distribution of material properties and the orange curve was fit to these samples; the final prediction is the mean and standard deviation of this orange curve.
+You should get an output that resembles the one above. The exact values will differ due to the randomness in the ML model. It's important to know that the value and uncertainty of the prediction appear at the top. The plot gives a visual representation for how these numbers were obtained. Namely, samples were drawn from the distribution of material properties and the orange curve was fit to these samples; the final prediction is the mean and standard deviation of this orange curve.
 
 ## Design
 The second menu option in data views that now appears is **Design**, which enumerates a list of candidate materials for you.
