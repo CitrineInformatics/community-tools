@@ -33,7 +33,7 @@ For this tutorial, we'll edit "Property Crystallinity" because we want it as an 
 The above menu will open up, allowing you to change the Variable Type to "Input." Depending on the Descriptor Type, this menu will show different options. *Categorical* descriptors will have all the categories listed for you to include (all are included by default), while *Real* descriptors will have a range of values for you to include. When you're all done—the other properties are fine, though it's a good idea to check each one—click "Okay" to collapse the menu, and finally **Save** at the very top.
 
 ## Model training
-"Training" is the term that refers to a ML model learning the relationships in the data given. In the background, Citrination trains a **random forest (RF)** model ([Wikipedia](https://en.wikipedia.org/wiki/Random_forest), [Brieman himself](https://www.stat.berkeley.edu/~breiman/RandomForests/cc_home.htm), [~accurate layman example](http://blog.echen.me/2011/03/14/laymans-introduction-to-random-forests/)) by default to fit the data based on the chosen inputs and outputs. Blue progress bars will display at the top of your screen indicating which step of the training process it's currently on.
+"Training" is the term that refers to a ML model learning the relationships in the data given. In the background, Citrination trains a ML model (for details, see [Wikipedia](https://en.wikipedia.org/wiki/Random_forest), [Brieman himself](https://www.stat.berkeley.edu/~breiman/RandomForests/cc_home.htm)) to fit the data based on the chosen inputs and outputs. Blue progress bars will display at the top of your screen indicating which step of the training process it's currently on.
 
 ![Model training](fig/55_model_training.png "Model training")
 
