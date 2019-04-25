@@ -122,15 +122,11 @@ def build_view_and_get_id(client:CitrinationClient, dataset_id:int,
     dv_builder.model_type('default') # random forest
 
     for key_name in input_keys:
-        desc_x = RealDescriptor(key=key_name,\
-        						lower_bound=-9999.0,\
-        						upper_bound=9999.0)
+        desc_x = RealDescriptor(key=key_name, lower_bound=-1e6, upper_bound=1e6)
         dv_builder.add_descriptor(desc_x, role='input')
 
     for key_name in output_keys:
-        desc_y = RealDescriptor(key=key_name,\
-        						lower_bound=-9999.0,\
-        						upper_bound=9999.0)
+        desc_y = RealDescriptor(key=key_name, lower_bound=-1e6, upper_bound=1e6)
         dv_builder.add_descriptor(desc_y, role='output')
 
     dv_config = dv_builder.build()
@@ -198,7 +194,7 @@ def run_sequential_learning(client:CitrinationClient, view_id:int, dataset_id:in
         _wait_on_data_view(client, dataset_id, view_id, wait_time, print_output)
 
         # Submit a design run
-        design_id = client.submit_design_run(
+        design_id = client.models.submit_design_run(
                 data_view_id=view_id,
                 num_candidates=num_candidates_per_iter,
                 effort=design_effort,
@@ -214,9 +210,9 @@ def run_sequential_learning(client:CitrinationClient, view_id:int, dataset_id:in
 
         # Compute the best values with uncertainties as a list of (value, uncertainty)
         if score_type == "MEI":
-            candidates = client.get_design_run_results(view_id, design_id).best_materials
+            candidates = client.models.get_design_run_results(view_id, design_id).best_materials
         else:
-            candidates = client.get_design_run_results(view_id, design_id).next_experiments
+            candidates = client.models.get_design_run_results(view_id, design_id).next_experiments
         values_w_uncertainties = [
             (
                 m["descriptor_values"][target[0]],
@@ -279,7 +275,7 @@ def run_sequential_learning(client:CitrinationClient, view_id:int, dataset_id:in
             best_sl_measured_vals.append(max(dataset_y_values))
 
         # Retrain model w/ wait times
-        client.data_views.retrain(view_id)
+        client.models.retrain(view_id)
         _wait_on_data_view(client, dataset_id, view_id, wait_time, print_output)
 
     if print_output:
@@ -320,7 +316,7 @@ def _wait_on_design_run(client:CitrinationClient, design_id:int, view_id:int,
     design_processing = True
     sleep(wait_time)
     while design_processing:
-        status = client.get_design_run_status(view_id, design_id).status
+        status = client.models.get_design_run_status(view_id, design_id).status
         if print_output:
             print(f"Design run status: {status}")
 
