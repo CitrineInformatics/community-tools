@@ -119,7 +119,7 @@ def build_view_and_get_id(client:CitrinationClient, dataset_id:int,
 
     dv_builder = DataViewBuilder()
     dv_builder.dataset_ids([str(dataset_id)])
-    dv_builder.model_type('default') # random forest
+    dv_builder.model_type('default')
 
     for key_name in input_keys:
         desc_x = RealDescriptor(key=key_name, lower_bound=-1e6, upper_bound=1e6)
