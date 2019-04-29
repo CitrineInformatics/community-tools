@@ -8,8 +8,12 @@ from collections import OrderedDict
 from time import sleep
 from typing import Callable, List, Tuple, Optional
 
+import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib.axes import Axes
+from matplotlib.lines import Line2D
+from matplotlib.contour import QuadContourSet
 import seaborn as sns
 from citrination_client import (CitrinationClient, DataQuery, DatasetQuery,
                                 Filter, PifSystemReturningQuery,
@@ -18,6 +22,9 @@ from citrination_client.models.design import Target
 from citrination_client.views.data_view_builder import DataViewBuilder
 from pypif import pif
 from pypif.obj import *
+
+circle_size=75
+star_size=100
 
 
 def write_dataset_from_func(test_function:Callable[[np.ndarray], float],
@@ -122,10 +129,17 @@ def build_view_and_get_id(client:CitrinationClient, dataset_id:int,
     dv_builder.model_type('default') # random forest
 
     for key_name in input_keys:
-        desc_x = RealDescriptor(key=key_name,\
-        						lower_bound=-9999.0,\
-        						upper_bound=9999.0)
-        dv_builder.add_descriptor(desc_x, role='input')
+        if 'formula' in key_name:
+            desc_x = InorganicDescriptor(key=key_name,
+                                         threshold=1)
+            dv_builder.add_descriptor(descriptor=desc_x,
+                                      role='input')
+        else:
+            desc_x = RealDescriptor(key=key_name,\
+                                    lower_bound=-9999.0,\
+                                    upper_bound=9999.0)
+            dv_builder.add_descriptor(desc_x, role='input')
+
 
     for key_name in output_keys:
         desc_y = RealDescriptor(key=key_name,\
@@ -152,6 +166,8 @@ def run_sequential_learning(client:CitrinationClient, view_id:int, dataset_id:in
                         target:List[str], print_output:bool,
                         true_function:Callable[[np.ndarray], float],
                         score_type:str,
+                        ax_data:Axes=None,
+                        ax_model:Axes=None,
                         ) -> Tuple[List[float], List[float]]:
     '''Runs SL design
 
@@ -191,11 +207,31 @@ def run_sequential_learning(client:CitrinationClient, view_id:int, dataset_id:in
     _wait_on_ingest(client, dataset_id, wait_time, print_output)
 
     for i in range(num_sl_iterations):
+
         if print_output:
             print(f"\n---STARTING SL ITERATION #{i+1}---")
 
         _wait_on_ingest(client, dataset_id, wait_time, print_output)
         _wait_on_data_view(client, dataset_id, view_id, wait_time, print_output)
+
+        # Plot dataset as it is at start of iteration
+        # Could include measurements from previous iteration if not first iteration
+        if ax_data is not None:
+            if i:
+                old_point_plot.remove()
+                new_point_plot.remove()
+
+            old_point_plot, new_point_plot = \
+                plot_dataset_2d(client,
+                                dataset_id,
+                                'x1',
+                                'x2',
+                                'y',
+                                ax_data=ax_data,
+                                first_time=(not i),
+                                iteration=i,
+                                num_candidates_per_iter=num_candidates_per_iter
+                                )
 
         # Submit a design run
         design_id = client.submit_design_run(
@@ -223,6 +259,26 @@ def run_sequential_learning(client:CitrinationClient, view_id:int, dataset_id:in
                 m["descriptor_values"][f"Uncertainty in {target[0]}"]
             ) for m in candidates
         ]
+
+        # Plot model surface and candidates
+        if ax_model is not None:
+            # Remove existing surface + points
+            if i:
+                [c.remove() for c in model_surface.collections]
+                candidates_on_model.remove()
+
+            model_surface = plot_model_2d(client,
+                                        view_id,
+                                        ax_model=ax_model,
+                                        first_time=(not i)
+                                        )
+            candidates_on_model = \
+                plot_candidates_on_model_2d(candidates,
+                                            ax_model=ax_model,
+                                            x1_col='x1',
+                                            x2_col='x2',
+                                            y_col='y')
+
 
         # Find and save the best predicted value
         if target[1] == "Min":
@@ -282,6 +338,30 @@ def run_sequential_learning(client:CitrinationClient, view_id:int, dataset_id:in
         client.data_views.retrain(view_id)
         _wait_on_data_view(client, dataset_id, view_id, wait_time, print_output)
 
+    # Final plot, last round of measurements
+    # Plot dataset as it is at start of iteration
+    # Could include measurements from previous iteration if not first iteration
+
+    _wait_on_ingest(client, dataset_id, wait_time, print_output)
+    _wait_on_data_view(client, dataset_id, view_id, wait_time, print_output)
+
+    if ax_data is not None:
+        if i:
+            old_point_plot.remove()
+            new_point_plot.remove()
+
+        old_point_plot, new_point_plot = \
+            plot_dataset_2d(client,
+                            dataset_id,
+                            'x1',
+                            'x2',
+                            'y',
+                            ax_data=ax_data,
+                            first_time=(not i),
+                            iteration=i,
+                            num_candidates_per_iter=num_candidates_per_iter
+                            )
+
     if print_output:
         print("SL finished!\n")
 
@@ -328,6 +408,231 @@ def _wait_on_design_run(client:CitrinationClient, design_id:int, view_id:int,
             sleep(wait_time)
         else:
             design_processing = False
+
+
+def plot_dataset_2d(client:CitrinationClient, dataset_id:int,
+                    x1_col:str, x2_col:str, y_col:str,
+                    ax_data:Axes=None,
+                    xlims:List[float]=[-5,5],
+                    ylims:List[float]=[-5,5],
+                    first_time:bool=False,
+                    iteration:int=0,
+                    num_candidates_per_iter:int=10,
+                    )->(Line2D, Line2D):
+    '''Plots a dataset on an x1/x2 axes with color for y
+    If not first iteration, mark new measurements as stars
+
+    :param client: Client object
+    :type client: CitrinationClient
+    :param dataset_id: Dataset ID
+    :type dataset_id: int
+    :param x1_col: "x1" (string corresponding to a property name in dataset)
+    :type x1_col: str
+    :param x2_col: "x2" (string corresponding to a property name in dataset)
+    :type x2_col: str
+    :param y_col: "y" (string corresponding to the target property name in dataset)
+    :type y_col: str
+    :param ax_data: matplotlib Axes object to be plotted on.
+    :type ax_data: Axes
+    :param xlims: lower and upper bounds for x axis
+    :type xlims: List[float]
+    :param ylims: lower and upper bounds for y axis
+    :type ylims: List[float]
+    :param first_time: whether this is the first instance of this plot being made
+    to avoid duplicate colorbar creation
+    :type first_time: bool
+    :param iteration: current iteration of loop
+    :type iteration: int
+    :param num_candidates_per_iter: name is self explanatory, passed through from parent function
+    :type num_candidates_per_iter: int
+
+    :return: data_point_plot, the plot object of the points that were plotted
+    :rtype: (Line2D, Line2D)
+    '''
+    
+    # Get the dataset into a DataFrame
+    query_dataset = PifSystemReturningQuery(size=9999,
+                        query=DataQuery(
+                            dataset=DatasetQuery(
+                                id=Filter(equal=str(dataset_id))
+                    )))
+    query_result = client.search.pif_search(query_dataset)
+    result_list = [{prop._name:prop._scalars[0]._value for prop in result._system._properties}
+                    for result in query_result._hits]
+    df_current = pd.DataFrame(result_list).astype(float)
+    df_current['updated_at'] = [hit._updated_at for hit in query_result._hits]
+    df_current = df_current.sort_values('updated_at')
+    vmin = df_current[y_col].min()
+    vmax = df_current[y_col].max()
+
+    # Setup axes
+    plt.sca(ax_data)
+
+    # Split into old measurements and new measurements
+    if not first_time:
+        num_rows = len(df_current)
+        num_new = num_candidates_per_iter
+        num_old = num_rows-num_new
+        df_old = df_current.iloc[:num_old+1]
+        df_new = df_current.iloc[-num_new:]
+    else:
+        df_old = df_current
+        
+
+    # Plot points
+    old_point_plot = plt.scatter(x1_col, x2_col,
+                                c = y_col,
+                                data = df_old,
+                                cmap = plt.cm.plasma,
+                                marker = 'o',
+                                s = circle_size,
+                                alpha = 0.75,
+                                vmin=vmin,
+                                vmax=vmax)
+    
+    # Add labels if first time generating the plot
+    if first_time:
+        plt.colorbar(label='toy function value')
+        plt.xlabel(x1_col)
+        plt.ylabel(x2_col)
+        plt.xlim(xlims)
+        plt.ylim(ylims)
+        plt.title('Initial Data')
+        plt.legend(['measurements'])
+        new_point_plot = plt.scatter([],[])
+
+    else:
+        new_point_plot = plt.scatter(x1_col, x2_col,
+                                    c = y_col,
+                                    data = df_new,
+                                    cmap = plt.cm.plasma,
+                                    marker = '*',
+                                    s = star_size,
+                                    alpha = 1,
+                                    edgecolor='w',
+                                    vmin=vmin,
+                                    vmax=vmax)
+        plt.title(f'Measurements, iter. {iteration}')
+        plt.legend(['old measurements', 'new measurements'])
+
+
+    ax_data.figure.canvas.draw()
+
+    return old_point_plot, new_point_plot
+
+
+def plot_model_2d(client:CitrinationClient,
+                    view_id:int,
+                    ax_model:Axes=None,
+                    x1lims:List[float]=[-5,5],
+                    x2lims:List[float]=[-5,5],
+                    dgrid:float=0.1,
+                    first_time:bool=False)->QuadContourSet:
+    '''Plots a model surface on x1/x2 axes with color for y
+
+    :param client: Client object
+    :type client: CitrinationClient
+    :param view_id: view ID
+    :type view_id: int
+    :param ax_model: matplotlib Axes object to be plotted on.
+    :type ax_model: Axes
+    :param x1lims: lower and upper bounds for x1 mesh
+    :type x1lims: List[float]
+    :param x2lims: lower and upper bounds for x2 mesh
+    :type x2lims: List[float]
+    :param dgrid: discretization for meshgrid (both x and y)
+    :type dgrid: float
+    :param first_time: whether this is the first instance of this plot being made
+    to avoid duplicate colorbar creation
+    :type first_time: bool
+
+    :return: model_surface
+    :rtype: QuadContourSet (matplotlib plot object)
+    '''
+    
+    # Get the first two column names of the DataView
+    dv_descriptors = client.data_views.get(view_id)['configuration']['descriptors'][::-1]
+    input_keys = [d['descriptor_key'] for d in dv_descriptors[:-1]]
+
+    # Create an x1/x2 meshgrid to run predictions on
+    x1_range = np.arange(x1lims[0],x1lims[1],dgrid)
+    x2_range = np.arange(x2lims[0],x2lims[1],dgrid)
+    xx_grid = np.meshgrid(x1_range, x2_range)
+
+    # Convert the xx_grid arrays into proper candidates for Citrination
+    # (list of dicts)
+    candidate_grid = [{input_keys[0]:x1_val,
+                       input_keys[1]:x2_val}
+                      for x1_val, x2_val in zip(xx_grid[0].ravel(),
+                                                xx_grid[1].ravel())
+                      ]
+
+    # Run predict services over the grid and get back a grid
+    # of predicted values same shape as xx_grid arrays
+    predictions_grid = client.models.predict(str(view_id), candidate_grid)
+    pred_vals_list = [pred._values['Property y']._value for pred in predictions_grid]
+    pred_vals_grid = np.array(pred_vals_list).reshape(xx_grid[0].shape)
+
+    # Setup axes and plot model
+    plt.sca(ax_model)
+    model_surface = plt.contourf(xx_grid[0],
+                                xx_grid[1],
+                                pred_vals_grid,
+                                cmap=plt.cm.plasma)
+
+    # Add colorbar and labels if this is the first time making the plot
+    if first_time:
+        plt.colorbar()
+        plt.xlabel(r'$x_1$'); plt.ylabel(r'$x_2$')
+        plt.xlim(x1lims); plt.ylim(x2lims)
+        plt.title("Model's Predicted Response Surface")
+
+    ax_model.figure.canvas.draw()
+    
+    return model_surface
+
+
+def plot_candidates_on_model_2d(candidates:List[dict],
+                                ax_model:Axes=None,
+                                x1_col:str='x1',
+                                x2_col:str='x2',
+                                y_col:str='y')->Line2D:
+    ''' Plot candidates (just x1/x2) as black stars on model surface
+
+    :param candidates: list of candidate points generated by design run
+    :type candidates: List[dict]
+    :param ax_model: matplotlib Axes object to be plotted on
+    :type ax_model: Axes
+    :param x1_col: "x1" (string corresponding to a property name in dataset)
+    :type x1_col: str
+    :param x2_col: "x2" (string corresponding to a property name in dataset)
+    :type x2_col: str
+    :param y_col: "y" (string corresponding to the target property name in dataset)
+    :type y_col: str
+
+    :return: candidates_on_model, the plot object of the candidate points
+    :rtype: Line2D
+    '''
+
+    # DataFrame of candidates
+    df_cand = pd.DataFrame(candidates)
+    df_cand[list(df_cand['descriptor_values'].iloc[0].keys())] = \
+        df_cand['descriptor_values'].apply(pd.Series)
+    df_cand = df_cand.drop(['descriptor_values', 'constraint_likelihoods'], axis=1)
+    df_cand = df_cand.astype(float)
+
+    # Plot the points
+    candidates_on_model = \
+        plt.scatter(df_cand[f'Property {x1_col}'].values,
+                    df_cand[f'Property {x2_col}'].values,
+                    marker = '*',
+                    facecolor = 'k',
+                    edgecolor = 'w',
+                    s = star_size)
+
+    ax_model.figure.canvas.draw()
+
+    return candidates_on_model
 
 
 def plot_sl_results(measured, predicted, init_best):
@@ -384,7 +689,8 @@ def plot_sl_results(measured, predicted, init_best):
     )
 
     plt.xlabel("SL iteration #")
-    plt.legend(loc='best', bbox_to_anchor=(1.5, 1.0))
+    plt.legend(loc='best')
+    # plt.legend(loc='best', bbox_to_anchor=(1.5, 1.0))
     plt.ylabel("Function value")
     plt.ylim([0, float(predicted[0][0])+1])
     plt.title(f"Optimizing using MLI")
