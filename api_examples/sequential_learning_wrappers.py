@@ -382,7 +382,6 @@ def plot_sl_results(measured, predicted, init_best):
     plt.xlabel("SL iteration #")
     plt.legend(loc='best', bbox_to_anchor=(1.5, 1.0))
     plt.ylabel("Function value")
-    plt.ylim([0, float(predicted[0][0])+1])
     plt.title(f"Optimizing using MLI")
     plt.grid(b=False, axis='x')
     plt.show()
