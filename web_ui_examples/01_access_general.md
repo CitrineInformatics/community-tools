@@ -1,3 +1,5 @@
+![Banner logo](../templates/fig/citrine_banner_2.png "Banner logo")
+
 # Access and General Information
 *Authors: Enze Chen*
 
@@ -5,9 +7,9 @@ In this guide, we will cover the login process to the [Citrination platform](htt
 
 ## Learning outcomes
 After reading this guide, you should feel comfortable with:
-* Logging in to Citrination
-* Knowing how to access account information
-* Knowing where to look for help
+* Logging in to Citrination.
+* Knowing how to access account information.
+* Knowing where to look for help.
 
 ## Login landing page
 The first time you try to access the Citrination platform, you will arrive at the following landing page:    
@@ -28,7 +30,7 @@ The first page on the Support menu is a list of frequently asked questions (FAQs
 
 ![FAQ](fig/04_support_faq.png "FAQ")   
 
-The second page on Data Management plan clarifies how the data stored on Citrination is licensed and how it should be shared. We appreciate acknowledgement when we provide data hosting services, but by no means do we require it.
+The second page on Data Management plan clarifies how the data stored on Citrination is licensed and how it should be shared. We greatly appreciate acknowledgement when we provide data hosting services for your project.
 
 ## User
 The User menu has four options on it. The first is your user profile, which looks like the screenshot below:   
@@ -37,7 +39,7 @@ The User menu has four options on it. The first is your user profile, which look
 
 Here you can add information about yourself, like a biography, your research areas, and any linked IDs by clicking "Edit User Profile."
 
-Perhaps the most important option in the dropdown menu is the "Account Settings" option, which allows you to edit your personal account details, like your email address. It also has your **personal API Key**, which you will use for [API](http://citrineinformatics.github.io/python-citrination-client/index.html) authentication. You should never share this key with anyone or post it publicly. The third item in Account Settings is setting up [Two-Factor Authentication](https://authy.com/what-is-2fa/), which we advise but is certainly optional.
+Perhaps the most important option in the dropdown menu is the "Account Settings" option, which allows you to edit your personal account details, like your email address. It also has your **personal API Key**, which you will use for [API](http://citrineinformatics.github.io/python-citrination-client/index.html) authentication. You should **never** share this key with anyone or post it publicly. The third item in Account Settings is setting up [Two-Factor Authentication](https://authy.com/what-is-2fa/), which we advise but is certainly optional.
 
 ## Getting help
 At the bottom, you will see a table of six blue links:   
@@ -45,14 +47,14 @@ At the bottom, you will see a table of six blue links:
 <img src="fig/06_links_bottom.png" alt="Miscellaneous links" width="390" height="120">
 
 The three links in the right column contain the standard administrative and legal fine print. The three on the left, however, deserve a little bit of elaboration:
-* **Report a Bug**: As humans, we make mistakes. If you notice a bug on our platform, we would be forever grateful if you could report it.
+* **Report a Bug**: As humans, we make mistakes. If you notice a bug on our platform, we would greatly appreciate it if you could report it.
 * **Feedback**: We're a small company aspiring to do high-impact work, and we want to prioritize the most urgent needs. Let us know how we're doing and how we can best help you.
 * **Join our Newsletter**: Our newsletter comes out once a week and contains the latest materials informatics academic research and business trends.
 
 ## Conclusion
 This concludes our discussion of the administrivia of the Citrination platform. As mentioned earlier, you should now feel comfortable with:
-* Logging in to Citrination
-* Knowing how to access account information
-* Knowing where to look for help
+* Logging in to Citrination.
+* Knowing how to access account information.
+* Knowing where to look for help.
 
-When you're ready to move on, feel free to look at either the [Data Management](02_data_management.md) or [Searching Citrination](04_search.md) guides. If you have further questions, please do not hesitate to [Contact Us](https://citrine.io/contact/).
+When you're ready to move on, feel free to look at either the [Data Management](02_data_management.md) or [Search](04_search.md) guides. If you have further questions, please do not hesitate to [Contact Us](https://citrine.io/contact/).

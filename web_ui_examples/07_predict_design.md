@@ -1,3 +1,5 @@
+![Banner logo](../templates/fig/citrine_banner_2.png "Banner logo")
+
 # Predict and Design
 *Authors: Enze Chen*
 
@@ -5,23 +7,23 @@ In this document, we will cover how to use the Predict and Design endpoints on t
 
 ## Learning outcomes
 After reading this guide, you should feel comfortable with:
-* Making predictions with the UI
-* Setting design parameters with the UI
-* Finding the best performing materials and the best experiments to perform next
+* Making predictions with the UI.
+* Setting design parameters with the UI.
+* Finding the best performing materials and the best experiments to perform next.
 
 ## Background knowledge
 To get the most out of this guide, it is helpful to be familiar with:
-* How to train [ML models](06_machine_learning.md) in Citrination
-* [Uncertainty quantification](https://arxiv.org/pdf/1704.07423.pdf) in Citrination
+* How to train [ML models](06_machine_learning.md) in Citrination.
+* [Uncertainty quantification](https://arxiv.org/pdf/1704.07423.pdf) in Citrination.
 
 ## Predict
 If you open your [Data View](03_data_views.md) and have [ML configured](06_machine_learning.md), then you will see **Predict** in your View menu options. Clicking on that will take you to the following page:
 
-<img src="fig/61_predict_input.png" alt="Predict input" width="650" height="361">
+![Predict input](fig/61_predict_input.png "Predict input")
 
 Here you can request predictions for new materials by supplying inputs to the the model you trained. You will see an input option corresponding to each input variable you had previously selected. Let's try to make a prediction for single crystalline boron nitride (BN).
 
-<img src="fig/62_predict_plot.png" alt="Predict plot" width="500" height="383">
+![Predict plot](fig/62_predict_plot.png "Predict plot")
 
 You should get an output that resembles the one above. The exact values will differ due to the randomness in the ML model. It's important to know that the value and uncertainty of the prediction appear at the top. The plot gives a visual representation for how these numbers were obtained. Namely, samples were drawn from the distribution of material properties and the orange curve was fit to these samples; the final prediction is the mean and standard deviation of this orange curve.
 
@@ -44,26 +46,26 @@ At the top, the "Run" button is highlighted in blue—but before we press that, 
 * **Targets**: Select which property you are designing materials for and for what goal (`Min`, `Max`, or a specific `Value`). We will use `Max` in this example.
 * **Target Constraints**: These constraints further limit the design space by setting restrictions on what values the *predicted* output can take. Candidates that are predicted to have values outside of this range will *not* appear. We'll keep this range from `0` to `Infinity`.
 
-<img src="fig/63_design_settings2.png" alt="Design settings 2" width="400" height="349">
+![Design settings 2](fig/63_design_settings2.png "Design settings 2")
 
 ### Design results
-There are two sets of candidates returned from the design process. The first set, **Maximum Expected Improvement (MEI)**, lists materials in ranked order of the materials expected to best maximize the targets and satisfy the constraints. The name comes from the fact that these candidates have a mean predicted value that is higher than that of all other candidates. The "MEI Score" isn't particularly important other than establishing a ranking. If you scroll to the right, you will see the chemical formula along with the predicted values and uncertainty. You will likely want to look for candidates with a non-zero uncertainty, since those are new candidates that don't appear in the training data.
+There are two sets of candidates returned from the design process. The first set, **Maximum Expected Improvement (MEI)**, lists materials in ranked order of the materials expected to best maximize the targets and satisfy the constraints. The name comes from the fact that these candidates have a mean predicted value that is higher than that of all other candidates. The "MEI Score" isn't particularly important other than establishing a ranking. If you scroll to the right, you will see the chemical formula along with the predicted values and uncertainty. You will want to look for candidates with a non-zero uncertainty, since those are new candidates that don't appear in the training data.
 
-<img src="fig/64_design_mei.png" alt="Design MEI" width="450" height="230">
+![Design MEI](fig/64_design_mei.png "Design MEI")
 
 The second set of materials, **Maximum Likelihood of Improvement (MLI)**, selects candidates most likely to have a higher target value than the best previously measured material, after the uncertainty has been taken into account (for a more in-depth discussion, see [this paper](https://arxiv.org/pdf/1704.07423.pdf)). The results table that is generated can be interpreted similarly to the first one. These are the candidate materials one might want to run experiments on next as part of the [sequential learning](https://citrine.io/platform/sequential-learning/) framework.
 
-<img src="fig/64_design_mli.png" alt="Design MLI" width="450" height="242">
+![Design MLI](fig/64_design_mli.png "Design MLI")
 
 Finally, at the top right of the page, you have the option of saving design results. You can then click "View Saved Candidates" at a later date and access your history of saved design runs for reference or further optimization.
 
-<img src="fig/65_design_history.png" alt="Design history" width="500" height="190">
+![Design history](fig/65_design_history.png "Design history")
 
 ## Conclusion
 
 This wraps up our discussion of the Predict and Design interfaces on the Citrination UI. At this point, you should feel comfortable with:
-* Making predictions with the UI
-* Setting design parameters with the UI
-* Finding the best performing materials and the best experiments to perform next
+* Making predictions with the UI.
+* Setting design parameters with the UI.
+* Finding the best performing materials and the best experiments to perform next.
 
 If you have further questions, please do not hesitate to [Contact Us](https://citrine.io/contact/).
