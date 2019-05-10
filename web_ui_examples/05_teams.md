@@ -1,3 +1,5 @@
+![Banner logo](../templates/fig/citrine_banner_2.png "Banner logo")
+
 # Teams
 *Authors: Enze Chen*
 
@@ -5,8 +7,8 @@ In this guide, we will cover how to create Teams on Citrination using the web UI
 
 ## Learning outcomes
 After reading this guide, you should feel comfortable:
-* Creating new teams on Citrination
-* Adding datasets and data views to teams
+* Creating new teams on Citrination.
+* Adding datasets and data views to teams.
 
 ## Teams page
 Clicking the "Teams" menu option will take you to the main page:
@@ -39,7 +41,7 @@ The third tab lists resources shared with the team. This includes datasets and d
 
 ![Team resources](fig/45_team_resources.png "Team resources")
 
-Clicking on the name of the resource will take you to that resource's page. As described in the image above, you must use the **Access** page for each resource in order to add that resource to a team.
+Clicking on the name of the resource will take you to that resource's page. As described in the image above, you must use the **Access** page for each resource in order to add that resource to a team. This slightly involved step helps prevent data from accidentally being shared with the wrong parties.
 
 ## Conclusion
 This concludes our discussion of how to create and manage Teams using the Citrination UI.  If you have further questions, please do not hesitate to [Contact Us](https://citrine.io/contact/).

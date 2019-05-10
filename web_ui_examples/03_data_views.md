@@ -1,3 +1,5 @@
+![Banner logo](../templates/fig/citrine_banner_2.png "Banner logo")
+
 # Data Views
 *Authors: Enze Chen*
 
@@ -5,8 +7,8 @@ In this guide, we will cover how to create a Data View ("View" for short) on Cit
 
 ## Learning outcomes
 After reading this guide, you should feel comfortable with:
-* Creating new Views using the Citrination UI
-* Inspecting data in matrix and plots formats
+* Creating new Views using the Citrination UI.
+* Inspecting data in matrix and plots formats.
 
 ## Background knowledge
 To get the most out of this guide, it is helpful to be familiar with:
@@ -51,7 +53,7 @@ You have the option of training ML models now, or later. Since this is a fairly 
 ## View matrix
 Congratulations on making your first View! If you're not automatically redirected to the View, then you should be able to find it in your list of [Data Views](https://citrination.com/data_views). The first page that pops up should be the matrix display:
 
-<img src="fig/26_view_matrix.png" alt="View matrix" width="700" height="521">  
+![View matrix](fig/26_view_matrix.png "View matrix")
 
 Here, each PIF record is displayed as a row in the table, and each property that you configured for the View is its own column. If a PIF record is missing a property, then that cell is blank. Individual PIF records can be accessed with the "View" button in each row.
 
@@ -69,12 +71,12 @@ There are many different plot types that you can choose from, including line plo
 
 In this example, we will plot a histogram of band gap values in this dataset, so we select "Band gap" for the *x*-axis. This produces a plot (backed by [Plotly](https://plot.ly/)) that looks like the following:
 
-<img src="fig/27_view_plots2.png" alt="View histogram" width="450" height="422">  
+![View histogram](fig/27_view_plots2.png "View histogram)
 
 ## Conclusion
 This concludes our discussion of how to create Data Views on the Citrination platform. As mentioned earlier, you should now feel comfortable with:
-* Creating new Views using the Citrination UI
-* Inspecting data in matrix and plots formats
+* Creating new Views using the Citrination UI.
+* Inspecting data in matrix and plots formats.
 
 When you're ready to move on, the next step will be to [Configure ML](06_machine_learning.md)!
 
