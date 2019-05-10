@@ -1,4 +1,4 @@
-![Banner logo](../templates/fig/citrine_banner_2.png "Banner logo")
+![Banner logo](templates/fig/citrine_banner_2.png "Banner logo")
 
 # community-tools
 [Public] The public end-point for sharing collaborator driven tools for materials informatics.
