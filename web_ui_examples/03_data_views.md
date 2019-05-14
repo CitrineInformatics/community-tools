@@ -71,7 +71,7 @@ There are many different plot types that you can choose from, including line plo
 
 In this example, we will plot a histogram of band gap values in this dataset, so we select "Band gap" for the *x*-axis. This produces a plot (backed by [Plotly](https://plot.ly/)) that looks like the following:
 
-![View histogram](fig/27_view_plots2.png "View histogram)
+![View histogram](fig/27_view_plots2.png "View histogram")
 
 ## Conclusion
 This concludes our discussion of how to create Data Views on the Citrination platform. As mentioned earlier, you should now feel comfortable with:

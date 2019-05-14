@@ -19,7 +19,7 @@ To get the most out of this guide, it is helpful to be familiar with:
   * [Example](https://github.com/CitrineInformatics/learn-citrination/blob/master/AdvancedPif.ipynb)
 
 ## Datasets page
-Datasets on Citrination are accessed under the "[Datasets](https://citrination.com/datasets)" menu option, which then opens the following page:   
+Datasets on Citrination are accessed under the **[Datasets](https://citrination.com/datasets)** menu option, which then opens the following page:   
 
 ![Datasets](fig/11_datasets_page.png "Datasets")   
 
@@ -36,7 +36,7 @@ Down below, you will see the list of datasets that fall under the category you'v
 ## Upload data
 If this is your first time on the Citrination platform, then "My Datasets" is likely empty for you. Let's change that by uploading some data! Click the "Upload Data" button found near the top of the page, which will take you to same page that opens if you had clicked "[Add Data](https://citrination.com/add_data)" in the black menu bar:   
 
-![Add data](fig/12_add_data.png "Add data") 
+![Add data](fig/12_add_data.png "Add data")
 
 Going through the items from top to bottom, the first choice to make is to decide if you're adding data to a new dataset (which must be created) or to an existing dataset.
 

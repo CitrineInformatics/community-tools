@@ -26,7 +26,7 @@ You might recall in the [Data Views guide](03_data_views.md) that we deferred co
 ![ML config](fig/51_ml_config.png "ML config")
 
 ### The reason for columns
-Those who are new to ML might not understand why we need to configure "columns" instead of "rows," let alone columns at all. Traditionally, when data is arranged into a tabular format, the rows will represent individual material candidates and the columns will represent the properties of each candidate. This is standard ML paradigm. Since ML is trying to learn the relationship between input properties and output properties, we have to specify which columns should be used and what role each one serves.
+Those who are new to ML might not understand why we need to configure "columns" instead of "rows," let alone columns at all. This is because traditionally, when data is arranged into a tabular format, the rows will represent individual material candidates and the columns will represent the properties of each candidate. This is standard ML paradigm. Since ML is trying to learn the relationship between input properties and output properties, we have to specify which columns should be used and what role each one serves.
 
 ### Set column types
 
@@ -64,7 +64,7 @@ You will also notice that the input we selected was "Chemical Formula," but the 
 
 The second figure on the "Data Summary" page is a **t-SNE** plot, which is short for t-Distributed Stochastic Neighbor Embedding. As you saw above, materials tend to live in *high-dimensional space*, meaning that there are tens to hundreds of features used to represent a material, and it is impossible to visualize such high-dimensional space. Therefore, we employ t-SNE as a *dimensionality reduction* technique to project the data onto 2 dimensions for ease of visualization, as shown below.
 
-![t-SNE plot](fig_54_reports_tsne.png "t-SNE plot")
+![t-SNE plot](fig/54_reports_tsne.png "t-SNE plot")
 
 This technique was developed about [a decade ago](https://lvdmaaten.github.io/tsne/) ([simpler explanation](https://www.analyticsvidhya.com/blog/2017/01/t-sne-implementation-r-python/)) and it's a powerful projection tool because nearby points in high-dimensional space remain close in 2D while distant points remain far apart. The points in our plot are color-coded based on the property value (as indicated by the color bar), and you can hover over each data point to obtain more information such as the chemical formula. t-SNE plots are helpful for identifying clusters and structures in your data. Note that because the t-SNE plot is stochastic (i.e. random), it will change if you retrain your Data View.
 

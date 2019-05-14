@@ -35,16 +35,16 @@ The second menu option in data views that now appears is **Design**, which enume
 At the top, the "Run" button is highlighted in blue—but before we press that, we have to set the design configurations.
 
 ### General settings
-* **Design Duration**: How long to run the search for new materials. Intuitively, a longer time results in a higher chance of finding the best materials. We'll just choose `1 minute` for demonstration.
-* **Number of Candidates**: The number of top candidate materials to keep in the final list. This doesn't affect the design time, only how many results you care to display. We'll keep this at `10`.
+* **Design Duration**: How long to run the search for new materials. Intuitively, a longer time results in a higher chance of finding the best materials as more resources are allocated. We'll just choose `1 minute` for demonstration.
+* **Number of Candidates**: The number of top candidate materials to keep in the final list. This shouldn't affect the design time, only how many results you care to display. We'll keep this at `10`.
 
 ### Input settings
-* **Design Space**: What types of materials to search over. `Default` generates new candidates based on the data view while `This view` restricts the search space to materials in the data view. We'll choose `Default`.
+* **Design Space**: What types of materials to search over. `Default` generates new candidates based on the data view while `This view` restricts the search space to only those materials that already appear in the data view (but might be missing outputs). We'll choose `Default`.
 * **Input Constraints**: These constraints further limit the design space. For categorical variables, you can select which categories you want the design endpoint to consider. For an input formula, you can combine logic with chemical formulas to filter specific elements. We'll include all options.
 
 ### Output settings
 * **Targets**: Select which property you are designing materials for and for what goal (`Min`, `Max`, or a specific `Value`). We will use `Max` in this example.
-* **Target Constraints**: These constraints further limit the design space by setting restrictions on what values the *predicted* output can take. Candidates that are predicted to have values outside of this range will *not* appear. We'll keep this range from `0` to `Infinity`.
+* **Target Constraints**: These constraints further limit the design space by setting restrictions on what values the *predicted* output can take. Candidates that are predicted to have values outside of this range will *not* appear. We'll set this range from `0` to `20`.
 
 ![Design settings 2](fig/63_design_settings2.png "Design settings 2")
 

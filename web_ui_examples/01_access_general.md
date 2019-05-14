@@ -12,11 +12,17 @@ After reading this guide, you should feel comfortable with:
 * Knowing where to look for help.
 
 ## Login landing page
-The first time you try to access the Citrination platform, you will arrive at the following landing page:    
+In order to access the Citrination Platform, you must accept our Privacy Policy. The following pop-up will appear each time we update our Privacy Policy:
+
+![Privacy policy](fig/07_privacy_policy.png "Privacy policy")
+
+Accepting the policy will take you to the following landing page:    
 
 ![Landing page](fig/01_landing_page.png "Landing page")   
 
 As a community research member, you should click the "OPEN" link. This brings you to the login page, where you can sign in with a Google account, or use your email address. Click "Sign up" on the bottom if you would like to make a new user account.
+
+If you are an industry customer, then you will have a separate deployment at https://your_site.citrination.com, which you should have received an invitation for. Please check your email or contact a Citrine team member for assistance.
 
 ## Main page
 After logging in, you will be directed to the main page, which defaults to the [Search](04_search.md) functionality. Below the search menu you will see all of the *public* [PIF records](http://citrineinformatics.github.io/pif-documentation/index.html) on Citrination, which at the time of this writing totals nearly 4.1 million records.   
