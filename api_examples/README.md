@@ -1,7 +1,7 @@
 # API Examples
 This folder contains examples (Jupyter notebooks) of how to interface with the [Python Citrination Client](http://citrineinformatics.github.io/python-citrination-client/index.html). You should make sure that you have Python 3 and all packages listed in [`requirements.txt`](../software_setup/requirements.txt) installed properly.
 
-![PyCC capabilities](fig/pycc_capabilities "PyCC capabilities")
+![PyCC capabilities](fig/pycc_capabilities.png "PyCC capabilities")
 
 ## Organization
 There are several notebooks in this repository that are part of a series of tutorials, though they can also be standalone references. They are:
