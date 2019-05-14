@@ -39,7 +39,7 @@ At the top, the "Run" button is highlighted in blue—but before we press that, 
 * **Number of Candidates**: The number of top candidate materials to keep in the final list. This shouldn't affect the design time, only how many results you care to display. We'll keep this at `10`.
 
 ### Input settings
-* **Design Space**: What types of materials to search over. `Default` generates new candidates based on the data view while `This view` restricts the search space to materials in the data view. We'll choose `Default`.
+* **Design Space**: What types of materials to search over. `Default` generates new candidates based on the data view while `This view` restricts the search space to only those materials that already appear in the data view (but might be missing outputs). We'll choose `Default`.
 * **Input Constraints**: These constraints further limit the design space. For categorical variables, you can select which categories you want the design endpoint to consider. For an input formula, you can combine logic with chemical formulas to filter specific elements. We'll include all options.
 
 ### Output settings
