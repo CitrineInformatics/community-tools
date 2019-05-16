@@ -9,7 +9,9 @@ This is a tool for the enumeration of inorganic material design spaces.
 Description
 ===========
 
-Enumerate a design space from a list of elements
+Enumerate a design space from a list of elements. This version only supports
+building of a design space of equiatomic compositions.
+
 
 optional arguments:
   -h, --help            show this help message and exit

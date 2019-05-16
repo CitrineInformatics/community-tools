@@ -76,7 +76,7 @@ def parse_args(args):
       :obj:`argparse.Namespace`: command line parameters namespace
     """
     parser = argparse.ArgumentParser(
-        description="Enumerate a design space from a list of elements")
+        description="Enumerate a design space from a list of elements.")
     parser.add_argument(
         '--version',
         action='version',
@@ -105,7 +105,7 @@ def parse_args(args):
         '--savefilepath',
         dest="save_filepath",
         help="file path to save design space as CSV",
-        default=None,
+        default="design_space.csv",
         type=str)
     parser.add_argument(
         '-k',
@@ -125,9 +125,9 @@ def parse_args(args):
         '-sv',
         '--save',
         dest="use_csv",
-        help="Use csv file to store data",
-        default=False,
-        action='store_true')
+        help="Do not use a csv file to store data",
+        default=True,
+        action='store_false')
     parser.add_argument(
         '-cn',
         '--citrination',
