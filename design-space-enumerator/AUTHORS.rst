@@ -2,4 +2,5 @@
 Contributors
 ============
 
-* malcolm@davidsonnanosolutions.com <malcolm@davidsonnanosolutions.com>
+* Malcolm Davidson <mdavidson@citrine.io>
+* Chris Borg <cborg@citrine.io>
