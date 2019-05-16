@@ -1,0 +1,14 @@
+[
+  {
+    "category": "system.chemical",
+    "chemicalFormula": "BaTi"
+  },
+  {
+    "category": "system.chemical",
+    "chemicalFormula": "BaO"
+  },
+  {
+    "category": "system.chemical",
+    "chemicalFormula": "TiO"
+  }
+]
