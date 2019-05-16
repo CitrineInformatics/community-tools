@@ -23,7 +23,7 @@ building of a design space of equiatomic compositions.
    * - --version                                               
      - show program's version number and exit        
    * - -e ELEMENTS, --elements ELEMENTS                        
-     - list of elemebts as Al,Br,...                 
+     - list of elemebts as -e Al -e Br ...                 
    * - -n NUM_ELEMENTS                                         
      - Number of elements in the chemical formula    
    * - -dfp DESIGN_FILEPATH, --designfilepath DESIGN_FILEPATH  
