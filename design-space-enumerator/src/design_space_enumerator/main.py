@@ -214,7 +214,7 @@ def store_on_citrination(data: Iterable[str], dataset_id: str, site: str, api_st
     to_pif(data)
     # create a new dataset version, if the dataset does not exist; create it.
     try:
-        client.create_dataset_version(dataset_id)
+        client.data.create_dataset_version(dataset_id)
     except Exception as exc:
         dataset_id = client.data.create_dataset().id
     client.data.upload(dataset_id, 'pifs.json')

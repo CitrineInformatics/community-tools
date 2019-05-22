@@ -8,8 +8,8 @@ from citrination_client.views.data_view_builder import DataViewBuilder
 
 #### Set up a citrination client
 client = CitrinationClient(
-    environ.get("SLAC_CITRINATION_API_KEY"),
-    "https://slac.citrination.com"
+    environ.get("CITRINATION_API_KEY"),
+    "https://citrination.com"
 )
 
 #### Initialize the client
