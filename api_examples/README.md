@@ -1,3 +1,5 @@
+### DEPRECATING - Use [`learn-citrination`](https://github.com/CitrineInformatics/learn-citrination/tree/master/citrination_api_examples) instead
+
 # API Examples
 This folder contains examples (Jupyter notebooks) of how to interface with the [Python Citrination Client](http://citrineinformatics.github.io/python-citrination-client/index.html). You should make sure that you have Python 3 and all packages listed in [`requirements.txt`](../software_setup/requirements.txt) installed properly.
 
