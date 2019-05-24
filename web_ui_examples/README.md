@@ -1,7 +1,9 @@
+### DEPRECATING - Use [`learn-citrination`](https://github.com/CitrineInformatics/learn-citrination/tree/master/citrination_ui_examples) instead
+
 # Web UI Examples
 This folder contains walk-through examples (with screenshots) of how to use the online [Citrination UI](https://citrination.com/). The numbering corresponds to a suggested order for someone accessing Citrination for their first time.
 
-Each file also addresses a separate functionality of the UI, so you can just learn about the functionality you need. 
+Each file also addresses a separate functionality of the UI, so you can just learn about the functionality you need.
 
 To see an example workflow that combines many of these elements, check out the [demo on shape memory alloys](https://github.com/CitrineInformatics/learn-citrination/blob/master/JournalPaperToModel.ipynb).
 
