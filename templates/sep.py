@@ -5,6 +5,13 @@ import sys
 
 from copy import deepcopy
 
+# Helper function: Substitute `master` or replace full name
+def sub_or_switch(filename, stem):
+    if filename.find("master") > -1:
+        return filename.replace("master", stem)
+    else:
+        return stem + ".ipynb"
+
 ## Handle CLI
 if len(sys.argv) == 1:
     print("Usage:")
@@ -22,17 +29,20 @@ else:
     if len(sys.argv) > 2:
         filename_assignment = sys.argv[2]
     else:
-        filename_assignment = "assignment.ipynb"
+        # filename_assignment = "assignment.ipynb"
+        filename_assignment = sub_or_switch(filename_orig, "assignment")
 
     if len(sys.argv) > 3:
         filename_solution = sys.argv[3]
     else:
-        filename_solution = "solution.ipynb"
+        # filename_solution = "solution.ipynb"
+        filename_solution = sub_or_switch(filename_orig, "solution")
 
 ## Load the notebook
 nb_orig       = nbformat.read(filename_orig, as_version = 3)
 nb_assignment = deepcopy(nb_orig)
 nb_solution   = deepcopy(nb_orig)
+
 
 for id_worksheet in range(len(nb_orig["worksheets"])):
     worksheet_orig       = nb_orig["worksheets"][id_worksheet]
