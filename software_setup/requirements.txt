@@ -1,10 +1,7 @@
-citrination_client>=5.0,<6.0
-pypif>=2.1.1,<3.0
+numpy==1.16.4
+scipy==1.3.0
+matplotlib==3.1.0
+pandas==0.25.0
 
-pandas>=0.23,<1.0
-numpy>=1.15.4,<2.0
-scipy>=1.1.0,<2.0
-pymatgen>=2019.1,<2020.0
-matplotlib>=3.0.0,<4.0
-
-jupyter>=1.0.0,<2.0
+git+https://github.com/CitrineInformatics/taurus@release/0.1.0
+git+https://github.com/CitrineInformatics/citrine-python@release/0.1.0
